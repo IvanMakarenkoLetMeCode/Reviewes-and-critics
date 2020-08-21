@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,12 @@
 		2C7157CA24EFB9AF009CB026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157C924EFB9AF009CB026 /* Assets.xcassets */; };
 		2C7157CD24EFB9AF009CB026 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157CB24EFB9AF009CB026 /* LaunchScreen.storyboard */; };
 		2C7157D824EFB9AF009CB026 /* Reviewes_and_criticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157D724EFB9AF009CB026 /* Reviewes_and_criticsTests.swift */; };
+		2C7157EA24EFF350009CB026 /* ReviewesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157E824EFF350009CB026 /* ReviewesTableViewCell.swift */; };
+		2C7157EB24EFF350009CB026 /* ReviewesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */; };
+		2C7157ED24F00C48009CB026 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157EC24F00C48009CB026 /* Review.swift */; };
+		2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157EE24F012FE009CB026 /* Multimedia.swift */; };
+		2EA952FDCF248291DCE1B509 /* Pods_Reviewes_and_criticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */; };
+		E40A606CED3D3FB9F0D6CDE8 /* Pods_Reviewes_and_critics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24B99ABDECD463C5FB8345C /* Pods_Reviewes_and_critics.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reviewes_and_criticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7157BD24EFB9AE009CB026 /* Reviewes and critics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reviewes and critics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7157C024EFB9AE009CB026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +45,15 @@
 		2C7157D324EFB9AF009CB026 /* Reviewes and criticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reviewes and criticsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7157D724EFB9AF009CB026 /* Reviewes_and_criticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviewes_and_criticsTests.swift; sourceTree = "<group>"; };
 		2C7157D924EFB9AF009CB026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C7157E824EFF350009CB026 /* ReviewesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesTableViewCell.swift; sourceTree = "<group>"; };
+		2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewesTableViewCell.xib; sourceTree = "<group>"; };
+		2C7157EC24F00C48009CB026 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		2C7157EE24F012FE009CB026 /* Multimedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multimedia.swift; sourceTree = "<group>"; };
+		5382EE0E78EF2A09494ED5DA /* Pods-Reviewes and criticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and criticsTests.release.xcconfig"; path = "Target Support Files/Pods-Reviewes and criticsTests/Pods-Reviewes and criticsTests.release.xcconfig"; sourceTree = "<group>"; };
+		72AF784D8533EB593071E0EB /* Pods-Reviewes and critics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and critics.release.xcconfig"; path = "Target Support Files/Pods-Reviewes and critics/Pods-Reviewes and critics.release.xcconfig"; sourceTree = "<group>"; };
+		9F7EDA3FB47FB88DD6BF0535 /* Pods-Reviewes and criticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and criticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Reviewes and criticsTests/Pods-Reviewes and criticsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A7376D1607C06D4FABE0F819 /* Pods-Reviewes and critics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and critics.debug.xcconfig"; path = "Target Support Files/Pods-Reviewes and critics/Pods-Reviewes and critics.debug.xcconfig"; sourceTree = "<group>"; };
+		B24B99ABDECD463C5FB8345C /* Pods_Reviewes_and_critics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reviewes_and_critics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E40A606CED3D3FB9F0D6CDE8 /* Pods_Reviewes_and_critics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EA952FDCF248291DCE1B509 /* Pods_Reviewes_and_criticsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +82,8 @@
 				2C7157BF24EFB9AE009CB026 /* Reviewes and critics */,
 				2C7157D624EFB9AF009CB026 /* Reviewes and criticsTests */,
 				2C7157BE24EFB9AE009CB026 /* Products */,
+				A1091926C0ECA65C6FD78030 /* Pods */,
+				56E247196C7BD682E858AB99 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,12 +99,12 @@
 		2C7157BF24EFB9AE009CB026 /* Reviewes and critics */ = {
 			isa = PBXGroup;
 			children = (
-				2C7157C024EFB9AE009CB026 /* AppDelegate.swift */,
-				2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */,
-				2C7157C424EFB9AE009CB026 /* ViewController.swift */,
-				2C7157C624EFB9AE009CB026 /* Main.storyboard */,
-				2C7157C924EFB9AF009CB026 /* Assets.xcassets */,
-				2C7157CB24EFB9AF009CB026 /* LaunchScreen.storyboard */,
+				2C7157E224EFBA49009CB026 /* System */,
+				2C7157E324EFBA5E009CB026 /* Models */,
+				2C7157E424EFBA79009CB026 /* Network cell */,
+				2C7157E524EFBA91009CB026 /* Controllers */,
+				2C7157E624EFBAAD009CB026 /* Storyboard */,
+				2C7157E724EFBACF009CB026 /* Files */,
 				2C7157CE24EFB9AF009CB026 /* Info.plist */,
 			);
 			path = "Reviewes and critics";
@@ -99,6 +119,78 @@
 			path = "Reviewes and criticsTests";
 			sourceTree = "<group>";
 		};
+		2C7157E224EFBA49009CB026 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				2C7157C024EFB9AE009CB026 /* AppDelegate.swift */,
+				2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		2C7157E324EFBA5E009CB026 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				2C7157EE24F012FE009CB026 /* Multimedia.swift */,
+				2C7157EC24F00C48009CB026 /* Review.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		2C7157E424EFBA79009CB026 /* Network cell */ = {
+			isa = PBXGroup;
+			children = (
+				2C7157E824EFF350009CB026 /* ReviewesTableViewCell.swift */,
+				2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */,
+			);
+			path = "Network cell";
+			sourceTree = "<group>";
+		};
+		2C7157E524EFBA91009CB026 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2C7157C424EFB9AE009CB026 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		2C7157E624EFBAAD009CB026 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				2C7157C624EFB9AE009CB026 /* Main.storyboard */,
+				2C7157CB24EFB9AF009CB026 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		2C7157E724EFBACF009CB026 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C7157C924EFB9AF009CB026 /* Assets.xcassets */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		56E247196C7BD682E858AB99 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B24B99ABDECD463C5FB8345C /* Pods_Reviewes_and_critics.framework */,
+				22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1091926C0ECA65C6FD78030 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A7376D1607C06D4FABE0F819 /* Pods-Reviewes and critics.debug.xcconfig */,
+				72AF784D8533EB593071E0EB /* Pods-Reviewes and critics.release.xcconfig */,
+				9F7EDA3FB47FB88DD6BF0535 /* Pods-Reviewes and criticsTests.debug.xcconfig */,
+				5382EE0E78EF2A09494ED5DA /* Pods-Reviewes and criticsTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +198,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C7157DC24EFB9AF009CB026 /* Build configuration list for PBXNativeTarget "Reviewes and critics" */;
 			buildPhases = (
+				71C89E093C7711FEDFC81AFB /* [CP] Check Pods Manifest.lock */,
 				2C7157B924EFB9AE009CB026 /* Sources */,
 				2C7157BA24EFB9AE009CB026 /* Frameworks */,
 				2C7157BB24EFB9AE009CB026 /* Resources */,
+				6FB6541FA961B655F305C4A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +217,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2C7157DF24EFB9AF009CB026 /* Build configuration list for PBXNativeTarget "Reviewes and criticsTests" */;
 			buildPhases = (
+				B2B95F23EDE8BE316D9BC16E /* [CP] Check Pods Manifest.lock */,
 				2C7157CF24EFB9AF009CB026 /* Sources */,
 				2C7157D024EFB9AF009CB026 /* Frameworks */,
 				2C7157D124EFB9AF009CB026 /* Resources */,
@@ -183,6 +278,7 @@
 				2C7157CD24EFB9AF009CB026 /* LaunchScreen.storyboard in Resources */,
 				2C7157CA24EFB9AF009CB026 /* Assets.xcassets in Resources */,
 				2C7157C824EFB9AE009CB026 /* Main.storyboard in Resources */,
+				2C7157EB24EFF350009CB026 /* ReviewesTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,14 +291,81 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6FB6541FA961B655F305C4A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reviewes and critics/Pods-Reviewes and critics-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Reviewes and critics/Pods-Reviewes and critics-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Reviewes and critics/Pods-Reviewes and critics-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71C89E093C7711FEDFC81AFB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reviewes and critics-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B2B95F23EDE8BE316D9BC16E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Reviewes and criticsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2C7157B924EFB9AE009CB026 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */,
+				2C7157ED24F00C48009CB026 /* Review.swift in Sources */,
 				2C7157C524EFB9AE009CB026 /* ViewController.swift in Sources */,
 				2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */,
 				2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */,
+				2C7157EA24EFF350009CB026 /* ReviewesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +523,7 @@
 		};
 		2C7157DD24EFB9AF009CB026 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A7376D1607C06D4FABE0F819 /* Pods-Reviewes and critics.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -378,6 +542,7 @@
 		};
 		2C7157DE24EFB9AF009CB026 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72AF784D8533EB593071E0EB /* Pods-Reviewes and critics.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,6 +561,7 @@
 		};
 		2C7157E024EFB9AF009CB026 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F7EDA3FB47FB88DD6BF0535 /* Pods-Reviewes and criticsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -418,6 +584,7 @@
 		};
 		2C7157E124EFB9AF009CB026 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5382EE0E78EF2A09494ED5DA /* Pods-Reviewes and criticsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

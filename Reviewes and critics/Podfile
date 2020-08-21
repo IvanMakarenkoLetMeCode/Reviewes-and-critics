@@ -1,0 +1,17 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '11.0'
+
+target 'Reviewes and critics' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for Reviewes and critics
+
+	pod 'Kingfisher'
+
+  target 'Reviewes and criticsTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

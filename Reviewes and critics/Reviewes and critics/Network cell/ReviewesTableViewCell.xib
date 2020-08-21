@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="454" id="KGk-i7-Jjw" customClass="ReviewesTableViewCell" customModule="Reviewes_and_critics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="1128" height="454"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="1128" height="454"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YDg-jL-egA">
+                        <rect key="frame" x="1099" y="422" width="19" height="22"/>
+                        <state key="normal" image="square.and.arrow.up" catalog="system"/>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GmO-y5-MpZ">
+                        <rect key="frame" x="10" y="10" width="281.5" height="434"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="GmO-y5-MpZ" secondAttribute="height" multiplier="267:412" id="mIm-yR-evA"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSr-Ch-dXb">
+                        <rect key="frame" x="301.5" y="10" width="816.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcJ-Ek-nb6">
+                        <rect key="frame" x="301.5" y="41" width="816.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CriticName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07d-nY-pDo">
+                        <rect key="frame" x="301.5" y="391" width="796.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mgt-vS-lXk">
+                        <rect key="frame" x="301.5" y="422" width="36" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMH-Rd-nmq">
+                        <rect key="frame" x="347.5" y="422" width="38" height="22"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Mgt-vS-lXk" secondAttribute="bottom" constant="10" id="6Wt-pC-Ssz"/>
+                    <constraint firstItem="kMH-Rd-nmq" firstAttribute="top" secondItem="07d-nY-pDo" secondAttribute="bottom" constant="10" id="JB3-e8-wHM"/>
+                    <constraint firstItem="xcJ-Ek-nb6" firstAttribute="leading" secondItem="GmO-y5-MpZ" secondAttribute="trailing" constant="10" id="MH2-jo-ee4"/>
+                    <constraint firstItem="jSr-Ch-dXb" firstAttribute="leading" secondItem="GmO-y5-MpZ" secondAttribute="trailing" constant="10" id="NLe-qr-gmd"/>
+                    <constraint firstItem="GmO-y5-MpZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="NwK-2A-cPW"/>
+                    <constraint firstAttribute="trailing" secondItem="YDg-jL-egA" secondAttribute="trailing" constant="10" id="QtF-7G-bDh"/>
+                    <constraint firstAttribute="bottom" secondItem="kMH-Rd-nmq" secondAttribute="bottom" constant="10" id="S5Q-CQ-EFh"/>
+                    <constraint firstItem="07d-nY-pDo" firstAttribute="leading" secondItem="GmO-y5-MpZ" secondAttribute="trailing" constant="10" id="SJI-lq-6Be"/>
+                    <constraint firstAttribute="bottom" secondItem="GmO-y5-MpZ" secondAttribute="bottom" constant="10" id="UH7-0c-rm6"/>
+                    <constraint firstItem="07d-nY-pDo" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xcJ-Ek-nb6" secondAttribute="bottom" constant="10" id="Yfa-LP-1x5"/>
+                    <constraint firstItem="kMH-Rd-nmq" firstAttribute="leading" secondItem="Mgt-vS-lXk" secondAttribute="trailing" constant="10" id="bbK-6j-vzG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="07d-nY-pDo" secondAttribute="trailing" constant="10" id="c3i-3V-yPC"/>
+                    <constraint firstAttribute="trailing" secondItem="xcJ-Ek-nb6" secondAttribute="trailing" constant="10" id="dM7-YH-bGl"/>
+                    <constraint firstItem="GmO-y5-MpZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="k5f-Bf-Cek"/>
+                    <constraint firstItem="Mgt-vS-lXk" firstAttribute="leading" secondItem="GmO-y5-MpZ" secondAttribute="trailing" constant="10" id="kDo-zS-Wsx"/>
+                    <constraint firstAttribute="bottom" secondItem="YDg-jL-egA" secondAttribute="bottom" constant="10" id="kXa-9R-FIy"/>
+                    <constraint firstItem="YDg-jL-egA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kMH-Rd-nmq" secondAttribute="trailing" constant="10" id="mPE-70-WT2"/>
+                    <constraint firstAttribute="trailing" secondItem="jSr-Ch-dXb" secondAttribute="trailing" constant="10" id="o7D-uv-CWr"/>
+                    <constraint firstItem="Mgt-vS-lXk" firstAttribute="top" secondItem="07d-nY-pDo" secondAttribute="bottom" constant="10" id="p8O-Rl-mYO"/>
+                    <constraint firstItem="jSr-Ch-dXb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="vHN-BO-21i"/>
+                    <constraint firstItem="xcJ-Ek-nb6" firstAttribute="top" secondItem="jSr-Ch-dXb" secondAttribute="bottom" constant="10" id="zSS-ni-0Ey"/>
+                    <constraint firstItem="YDg-jL-egA" firstAttribute="top" relation="greaterThanOrEqual" secondItem="07d-nY-pDo" secondAttribute="bottom" constant="10" id="zqF-Lj-fOb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="createData" destination="Mgt-vS-lXk" id="nhs-lS-GeC"/>
+                <outlet property="createTime" destination="kMH-Rd-nmq" id="0ZN-Ti-dmy"/>
+                <outlet property="criticName" destination="07d-nY-pDo" id="Ru6-mJ-lJl"/>
+                <outlet property="movieImageView" destination="GmO-y5-MpZ" id="5e2-C6-aaU"/>
+                <outlet property="movieName" destination="jSr-Ch-dXb" id="fSh-D8-l9L"/>
+                <outlet property="review" destination="xcJ-Ek-nb6" id="rRL-NU-a6t"/>
+                <outlet property="shareButton" destination="YDg-jL-egA" id="4aK-8L-EW8"/>
+            </connections>
+            <point key="canvasLocation" x="246.37681159420291" y="-6.0267857142857144"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
+    </resources>
+</document>

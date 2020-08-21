@@ -1,0 +1,6 @@
+framework module Pods_Reviewes_and_criticsTests {
+  umbrella header "Pods-Reviewes and criticsTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
