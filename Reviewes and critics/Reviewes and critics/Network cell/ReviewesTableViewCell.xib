@@ -89,7 +89,7 @@
                 <outlet property="criticName" destination="07d-nY-pDo" id="Ru6-mJ-lJl"/>
                 <outlet property="movieImageView" destination="GmO-y5-MpZ" id="5e2-C6-aaU"/>
                 <outlet property="movieName" destination="jSr-Ch-dXb" id="fSh-D8-l9L"/>
-                <outlet property="review" destination="xcJ-Ek-nb6" id="rRL-NU-a6t"/>
+                <outlet property="reviewLabel" destination="xcJ-Ek-nb6" id="rRL-NU-a6t"/>
                 <outlet property="shareButton" destination="YDg-jL-egA" id="4aK-8L-EW8"/>
             </connections>
             <point key="canvasLocation" x="246.37681159420291" y="-6.0267857142857144"/>

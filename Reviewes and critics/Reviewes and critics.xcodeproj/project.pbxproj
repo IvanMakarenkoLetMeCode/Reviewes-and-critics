@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C09576424F40176006CFB4B /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C09576324F40176006CFB4B /* Results.swift */; };
+		2C4DA9E524F3B27D00A77333 /* ReviewesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E424F3B27D00A77333 /* ReviewesViewController.swift */; };
+		2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E624F3B2AC00A77333 /* CriticsViewController.swift */; };
+		2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */; };
+		2C4DA9EB24F3B5D500A77333 /* SessionForReviewes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */; };
+		2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9EC24F3B69F00A77333 /* NetworkError.swift */; };
 		2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C024EFB9AE009CB026 /* AppDelegate.swift */; };
 		2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */; };
-		2C7157C524EFB9AE009CB026 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C424EFB9AE009CB026 /* ViewController.swift */; };
+		2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C424EFB9AE009CB026 /* ContainerViewController.swift */; };
 		2C7157C824EFB9AE009CB026 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157C624EFB9AE009CB026 /* Main.storyboard */; };
 		2C7157CA24EFB9AF009CB026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157C924EFB9AF009CB026 /* Assets.xcassets */; };
 		2C7157CD24EFB9AF009CB026 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157CB24EFB9AF009CB026 /* LaunchScreen.storyboard */; };
@@ -34,10 +40,16 @@
 
 /* Begin PBXFileReference section */
 		22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reviewes_and_criticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C09576324F40176006CFB4B /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
+		2C4DA9E424F3B27D00A77333 /* ReviewesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesViewController.swift; sourceTree = "<group>"; };
+		2C4DA9E624F3B2AC00A77333 /* CriticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsViewController.swift; sourceTree = "<group>"; };
+		2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticAboutViewController.swift; sourceTree = "<group>"; };
+		2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionForReviewes.swift; sourceTree = "<group>"; };
+		2C4DA9EC24F3B69F00A77333 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2C7157BD24EFB9AE009CB026 /* Reviewes and critics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reviewes and critics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7157C024EFB9AE009CB026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2C7157C424EFB9AE009CB026 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C7157C424EFB9AE009CB026 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		2C7157C724EFB9AE009CB026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2C7157C924EFB9AF009CB026 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C7157CC24EFB9AF009CB026 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -133,6 +145,9 @@
 			children = (
 				2C7157EE24F012FE009CB026 /* Multimedia.swift */,
 				2C7157EC24F00C48009CB026 /* Review.swift */,
+				2C09576324F40176006CFB4B /* Results.swift */,
+				2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */,
+				2C4DA9EC24F3B69F00A77333 /* NetworkError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -149,7 +164,10 @@
 		2C7157E524EFBA91009CB026 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2C7157C424EFB9AE009CB026 /* ViewController.swift */,
+				2C7157C424EFB9AE009CB026 /* ContainerViewController.swift */,
+				2C4DA9E424F3B27D00A77333 /* ReviewesViewController.swift */,
+				2C4DA9E624F3B2AC00A77333 /* CriticsViewController.swift */,
+				2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -360,11 +378,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C4DA9E524F3B27D00A77333 /* ReviewesViewController.swift in Sources */,
 				2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */,
 				2C7157ED24F00C48009CB026 /* Review.swift in Sources */,
-				2C7157C524EFB9AE009CB026 /* ViewController.swift in Sources */,
+				2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */,
+				2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */,
+				2C4DA9EB24F3B5D500A77333 /* SessionForReviewes.swift in Sources */,
+				2C09576424F40176006CFB4B /* Results.swift in Sources */,
 				2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */,
+				2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */,
 				2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */,
+				2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */,
 				2C7157EA24EFF350009CB026 /* ReviewesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

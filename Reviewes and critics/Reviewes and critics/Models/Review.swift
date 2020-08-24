@@ -10,12 +10,11 @@ import Foundation
 
 struct Review: Codable
 {
-    var movieName = String
-    var review = String?
-    var criticName = String
-    var createData = String
-    var createTime = <#value#>
-    var cover = Multimedia
+    var movieName: String
+    var review: String?
+    var criticName: String?
+    var createData: String?
+    var cover: Multimedia?
     
     
     
@@ -23,8 +22,7 @@ struct Review: Codable
         case movieName = "display_title"
         case review = "summary_short"
         case criticName = "byline"
-        case createData = "publication_date"
-        case createTime
-        case cover
+        case createData = "date_updated"
+        case cover = "multimedia"
     }
 }

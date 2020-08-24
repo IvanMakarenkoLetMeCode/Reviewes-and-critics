@@ -1,18 +1,18 @@
 //
-//  Multimedia.swift
+//  Results.swift
 //  Reviewes and critics
 //
-//  Created by Ivan on 21.08.2020.
+//  Created by Ivan on 24.08.2020.
 //  Copyright © 2020 Ivan. All rights reserved.
 //
 
 import Foundation
 
-struct Multimedia: Codable
+struct Results: Codable
 {
-    var src: String?
+    var review: [Review]
     
     enum CodingKeys: String, CodingKey {
-        case src = "src"
+        case review = "results"
     }
 }
