@@ -10,9 +10,11 @@ import Foundation
 
 struct Results: Codable
 {
-    var review: [Review]
+    var reviews: [Review]
+    var hasMore: Bool
     
     enum CodingKeys: String, CodingKey {
-        case review = "results"
+        case reviews = "results"
+        case hasMore = "has_more"
     }
 }

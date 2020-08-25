@@ -10,7 +10,7 @@ import Foundation
 
 struct Review: Codable
 {
-    var movieName: String
+    var movieName: String?
     var review: String?
     var criticName: String?
     var createData: String?

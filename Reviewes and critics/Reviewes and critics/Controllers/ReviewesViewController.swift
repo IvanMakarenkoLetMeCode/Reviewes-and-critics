@@ -13,7 +13,7 @@ class ReviewesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let sessionForReviewes = SessionForReviewes()
-    var reviews: [Results] = []
+    var reviewes: [Review] = []
     
     private let reviewCellIdentifier = String(describing: ReviewesTableViewCell.self)
     
@@ -28,14 +28,14 @@ class ReviewesViewController: UIViewController {
     
     private func reloadReviewes() {
         
-        sessionForReviewes.loadGames { [weak self] reviews, error in
-            guard let self = self, let reviews = reviews else {
-                
+        sessionForReviewes.loadGames { [weak self] success, error in
+            guard let self = self, let success = success else {
+
                 print(String(describing: error))
                 return
             }
-            
-            self.reviews += reviews
+
+            self.reviewes += success.reviews
             DispatchQueue.main.async {
                 
                 self.tableView.reloadData()
@@ -50,12 +50,12 @@ class ReviewesViewController: UIViewController {
 extension ReviewesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return reviews.count
+        return reviewes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reviewCellIdentifier, for: indexPath) as? ReviewesTableViewCell else { fatalError() }
-        let review = reviews[indexPath.row]
+        let review = reviewes[indexPath.row]
         cell.configure(with: review)
         return cell
     }

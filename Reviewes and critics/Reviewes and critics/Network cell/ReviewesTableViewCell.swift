@@ -13,58 +13,63 @@ class ReviewesTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var movieImageView: UIImageView!
-    @IBOutlet weak var movieName: UILabel!
+    @IBOutlet weak var movieNameLabel: UILabel!
     @IBOutlet weak var reviewLabel: UILabel!
-    @IBOutlet weak var criticName: UILabel!
-    @IBOutlet weak var createData: UILabel!
-    @IBOutlet weak var createTime: UILabel!
+    @IBOutlet weak var criticNameLabel: UILabel!
+    @IBOutlet weak var createDataLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        movieImageView.kf.cancelDownloadTask()
     }
     
-    func configure(with review: Results) {
+    func configure(with movie: Review) {
         
         //Data formatter
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        dateFormatter.locale = Locale(identifier: "en_US")
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateStyle = .medium
+//        dateFormatter.timeStyle = .none
+//        dateFormatter.locale = Locale(identifier: "en_US")
         
         //Movie name tranformation
-        movieName.text = review.review[]
+        movieNameLabel.text = movie.movieName
         
         //Data tranformation
-//        if game.releaseDates != nil
-//        {
-//           gameYearLabel.text = game.releaseDates?.compactMap { $0.date }.map { Date(timeIntervalSince1970: Double($0)) }.compactMap { dateFormatter.string(from: $0) }.joined(separator: "\r")
-//        } else
-//        {
-//            gameYearLabel.text = "No release\rdates"
-//        }
+        if movie.createData != nil
+        {
+//            gameYearLabel.text = game.releaseDates?.compactMap { $0.date }.map { Date(timeIntervalSince1970: Double($0)) }.compactMap { dateFormatter.string(from: $0) }.joined(separator: "\r")
+            createDataLabel.text = movie.createData
+        } else
+        {
+            createDataLabel.text = "No dates"
+        }
         
         //Review tranformation
-        if review.review != nil
+        if movie.review != nil
         {
-            reviewLabel.text = review.review
+            reviewLabel.text = movie.review
         } else
         {
             reviewLabel.text = "No review description"
         }
         
         //Critic name tranformation
-        criticName.text = review.criticName
+        if movie.criticName != nil {
+            criticNameLabel.text = movie.criticName
+        } else {
+            criticNameLabel.text = "No critic name"
+        }
+        
         
         //Cover tranformation
-//        if let id = game.cover?.imageId {
-//            let urlTemplate = "https://images.igdb.com/igdb/image/upload/t_cover_big/\(id).jpg"
-//            gameImageView.kf.setImage(with: URL(string: urlTemplate))
-//        } else {
-//            gameImageView.image = UIImage(named: "defaultImage")
-//        }
+        if movie.cover?.src != nil {
+            let urlTemplate = movie.cover?.src ?? ""
+            movieImageView.kf.setImage(with: URL(string: urlTemplate))
+        } else {
+            movieImageView.image = UIImage(named: "defaultImage")
+        }
         
     }
 
