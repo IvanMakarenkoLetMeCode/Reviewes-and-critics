@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C09576424F40176006CFB4B /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C09576324F40176006CFB4B /* Results.swift */; };
 		2C4DA9E524F3B27D00A77333 /* ReviewesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E424F3B27D00A77333 /* ReviewesViewController.swift */; };
 		2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E624F3B2AC00A77333 /* CriticsViewController.swift */; };
 		2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */; };
@@ -24,6 +23,7 @@
 		2C7157EB24EFF350009CB026 /* ReviewesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */; };
 		2C7157ED24F00C48009CB026 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157EC24F00C48009CB026 /* Review.swift */; };
 		2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157EE24F012FE009CB026 /* Multimedia.swift */; };
+		2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B31B24F552B10058E1E5 /* FullArray.swift */; };
 		2EA952FDCF248291DCE1B509 /* Pods_Reviewes_and_criticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */; };
 		E40A606CED3D3FB9F0D6CDE8 /* Pods_Reviewes_and_critics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24B99ABDECD463C5FB8345C /* Pods_Reviewes_and_critics.framework */; };
 /* End PBXBuildFile section */
@@ -40,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reviewes_and_criticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2C09576324F40176006CFB4B /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		2C4DA9E424F3B27D00A77333 /* ReviewesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesViewController.swift; sourceTree = "<group>"; };
 		2C4DA9E624F3B2AC00A77333 /* CriticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsViewController.swift; sourceTree = "<group>"; };
 		2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticAboutViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewesTableViewCell.xib; sourceTree = "<group>"; };
 		2C7157EC24F00C48009CB026 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		2C7157EE24F012FE009CB026 /* Multimedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multimedia.swift; sourceTree = "<group>"; };
+		2C85B31B24F552B10058E1E5 /* FullArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArray.swift; sourceTree = "<group>"; };
 		5382EE0E78EF2A09494ED5DA /* Pods-Reviewes and criticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and criticsTests.release.xcconfig"; path = "Target Support Files/Pods-Reviewes and criticsTests/Pods-Reviewes and criticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		72AF784D8533EB593071E0EB /* Pods-Reviewes and critics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and critics.release.xcconfig"; path = "Target Support Files/Pods-Reviewes and critics/Pods-Reviewes and critics.release.xcconfig"; sourceTree = "<group>"; };
 		9F7EDA3FB47FB88DD6BF0535 /* Pods-Reviewes and criticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and criticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Reviewes and criticsTests/Pods-Reviewes and criticsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,8 +145,8 @@
 			children = (
 				2C7157EE24F012FE009CB026 /* Multimedia.swift */,
 				2C7157EC24F00C48009CB026 /* Review.swift */,
-				2C09576324F40176006CFB4B /* Results.swift */,
 				2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */,
+				2C85B31B24F552B10058E1E5 /* FullArray.swift */,
 				2C4DA9EC24F3B69F00A77333 /* NetworkError.swift */,
 			);
 			path = Models;
@@ -384,9 +384,9 @@
 				2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */,
 				2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */,
 				2C4DA9EB24F3B5D500A77333 /* SessionForReviewes.swift in Sources */,
-				2C09576424F40176006CFB4B /* Results.swift in Sources */,
 				2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */,
 				2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */,
+				2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */,
 				2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */,
 				2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */,
 				2C7157EA24EFF350009CB026 /* ReviewesTableViewCell.swift in Sources */,

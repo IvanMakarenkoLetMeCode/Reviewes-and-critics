@@ -1,5 +1,5 @@
 //
-//  Results.swift
+//  SuccessResult.swift
 //  Reviewes and critics
 //
 //  Created by Ivan on 24.08.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Results: Codable
+struct SuccessResult: Codable
 {
     var reviews: [Review]
     var hasMore: Bool
