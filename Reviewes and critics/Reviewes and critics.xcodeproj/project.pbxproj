@@ -19,11 +19,11 @@
 		2C7157CA24EFB9AF009CB026 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157C924EFB9AF009CB026 /* Assets.xcassets */; };
 		2C7157CD24EFB9AF009CB026 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157CB24EFB9AF009CB026 /* LaunchScreen.storyboard */; };
 		2C7157D824EFB9AF009CB026 /* Reviewes_and_criticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157D724EFB9AF009CB026 /* Reviewes_and_criticsTests.swift */; };
-		2C7157EA24EFF350009CB026 /* ReviewesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157E824EFF350009CB026 /* ReviewesTableViewCell.swift */; };
-		2C7157EB24EFF350009CB026 /* ReviewesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */; };
 		2C7157ED24F00C48009CB026 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157EC24F00C48009CB026 /* Review.swift */; };
 		2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157EE24F012FE009CB026 /* Multimedia.swift */; };
 		2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B31B24F552B10058E1E5 /* FullArray.swift */; };
+		2CE9D0F424F646CD00A916B0 /* ReviewesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */; };
+		2CE9D0F524F646CD00A916B0 /* ReviewesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */; };
 		2EA952FDCF248291DCE1B509 /* Pods_Reviewes_and_criticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */; };
 		E40A606CED3D3FB9F0D6CDE8 /* Pods_Reviewes_and_critics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B24B99ABDECD463C5FB8345C /* Pods_Reviewes_and_critics.framework */; };
 /* End PBXBuildFile section */
@@ -56,11 +56,11 @@
 		2C7157D324EFB9AF009CB026 /* Reviewes and criticsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Reviewes and criticsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7157D724EFB9AF009CB026 /* Reviewes_and_criticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reviewes_and_criticsTests.swift; sourceTree = "<group>"; };
 		2C7157D924EFB9AF009CB026 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2C7157E824EFF350009CB026 /* ReviewesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesTableViewCell.swift; sourceTree = "<group>"; };
-		2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewesTableViewCell.xib; sourceTree = "<group>"; };
 		2C7157EC24F00C48009CB026 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		2C7157EE24F012FE009CB026 /* Multimedia.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Multimedia.swift; sourceTree = "<group>"; };
 		2C85B31B24F552B10058E1E5 /* FullArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArray.swift; sourceTree = "<group>"; };
+		2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesCollectionViewCell.swift; sourceTree = "<group>"; };
+		2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewesCollectionViewCell.xib; sourceTree = "<group>"; };
 		5382EE0E78EF2A09494ED5DA /* Pods-Reviewes and criticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and criticsTests.release.xcconfig"; path = "Target Support Files/Pods-Reviewes and criticsTests/Pods-Reviewes and criticsTests.release.xcconfig"; sourceTree = "<group>"; };
 		72AF784D8533EB593071E0EB /* Pods-Reviewes and critics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and critics.release.xcconfig"; path = "Target Support Files/Pods-Reviewes and critics/Pods-Reviewes and critics.release.xcconfig"; sourceTree = "<group>"; };
 		9F7EDA3FB47FB88DD6BF0535 /* Pods-Reviewes and criticsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and criticsTests.debug.xcconfig"; path = "Target Support Files/Pods-Reviewes and criticsTests/Pods-Reviewes and criticsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -155,8 +155,8 @@
 		2C7157E424EFBA79009CB026 /* Network cell */ = {
 			isa = PBXGroup;
 			children = (
-				2C7157E824EFF350009CB026 /* ReviewesTableViewCell.swift */,
-				2C7157E924EFF350009CB026 /* ReviewesTableViewCell.xib */,
+				2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */,
+				2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */,
 			);
 			path = "Network cell";
 			sourceTree = "<group>";
@@ -296,7 +296,7 @@
 				2C7157CD24EFB9AF009CB026 /* LaunchScreen.storyboard in Resources */,
 				2C7157CA24EFB9AF009CB026 /* Assets.xcassets in Resources */,
 				2C7157C824EFB9AE009CB026 /* Main.storyboard in Resources */,
-				2C7157EB24EFF350009CB026 /* ReviewesTableViewCell.xib in Resources */,
+				2CE9D0F524F646CD00A916B0 /* ReviewesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,7 +389,7 @@
 				2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */,
 				2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */,
 				2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */,
-				2C7157EA24EFF350009CB026 /* ReviewesTableViewCell.swift in Sources */,
+				2CE9D0F424F646CD00A916B0 /* ReviewesCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

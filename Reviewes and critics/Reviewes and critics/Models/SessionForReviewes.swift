@@ -10,10 +10,10 @@ import UIKit
 
 class SessionForReviewes {
     
-    func loadGames(type: String, offset: Int, order: String, completionHandler: @escaping (FullArray?, NetworkError?) -> Void) {
+    func loadGames(openingDate: String, offset: Int, order: String, query: String, completionHandler: @escaping (FullArray?, NetworkError?) -> Void) {
         
         let session = URLSession.shared
-        let url = URL(string: "https://api.nytimes.com/svc/movies/v2/reviews/\(type).json?offset=\(offset)&order=\(order)&api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od")!
+        let url = URL(string: "https://api.nytimes.com/svc/movies/v2/reviews/search.json?offset=\(offset)&opening-date=\(openingDate)&order=\(order)&query=\(query)&api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
