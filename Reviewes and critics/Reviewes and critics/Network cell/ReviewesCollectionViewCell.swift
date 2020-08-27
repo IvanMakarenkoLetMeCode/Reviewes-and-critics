@@ -17,8 +17,14 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var reviewLabel: UILabel!
     @IBOutlet weak var criticNameLabel: UILabel!
     @IBOutlet weak var createDataLabel: UILabel!
+    @IBOutlet weak var createTimeLabel: UILabel!
     @IBOutlet weak var shareButton: UIButton!
     
+    lazy var width: NSLayoutConstraint = {
+        let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
+        width.isActive = true
+        return width
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,13 +40,20 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
 //        dateFormatter.locale = Locale(identifier: "en_US")
         
         //Movie name tranformation
-        movieNameLabel.text = movie.movieName
+        let boldText  = movie.movieName ?? ""
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)]
+        let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
+        movieNameLabel.attributedText = attributedString
         
         //Data tranformation
         if movie.createData != nil
         {
-//            gameYearLabel.text = game.releaseDates?.compactMap { $0.date }.map { Date(timeIntervalSince1970: Double($0)) }.compactMap { dateFormatter.string(from: $0) }.joined(separator: "\r")
-            createDataLabel.text = movie.createData
+            var dataMovie = movie.createData ?? ""
+            var timeMovie = movie.createData ?? ""
+            dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
+            timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
+            createDataLabel.text = dataMovie
+            createTimeLabel.text = timeMovie
         } else
         {
             createDataLabel.text = "No dates"
@@ -57,7 +70,11 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
         
         //Critic name tranformation
         if movie.criticName != nil {
-            criticNameLabel.text = movie.criticName
+            
+            let boldText  = movie.criticName ?? ""
+            let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 15)]
+            let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
+            criticNameLabel.attributedText = attributedString
         } else {
             criticNameLabel.text = "No critic name"
         }
@@ -72,4 +89,12 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
         }
         
     }
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize,
+                                          withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+                                          verticalFittingPriority: UILayoutPriority) -> CGSize {
+        width.constant = bounds.size.width
+        return contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
+    }
+    
 }

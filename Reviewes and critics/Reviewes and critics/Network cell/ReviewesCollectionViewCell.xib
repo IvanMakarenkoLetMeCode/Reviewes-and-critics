@@ -26,21 +26,21 @@
                                     <constraint firstAttribute="width" constant="140" id="mVl-ls-yCd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHp-5R-lpW">
-                                <rect key="frame" x="160" y="10" width="776" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHp-5R-lpW">
+                                <rect key="frame" x="160" y="10" width="776" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vU-G9-Qlq">
-                                <rect key="frame" x="160" y="41" width="776" height="16"/>
+                                <rect key="frame" x="160" y="38" width="776" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="CriticName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAd-fi-hMB">
-                                <rect key="frame" x="160" y="167" width="776" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="CriticName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAd-fi-hMB">
+                                <rect key="frame" x="160" y="170" width="776" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,7 +51,13 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAj-xy-uJf">
                                 <rect key="frame" x="160" y="201" width="28.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY9-Xf-alc">
+                                <rect key="frame" x="198.5" y="201" width="30" height="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -67,12 +73,14 @@
                             <constraint firstItem="2vU-G9-Qlq" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="YRk-Oy-Zbh"/>
                             <constraint firstAttribute="bottom" secondItem="kBT-QR-Zaf" secondAttribute="bottom" constant="10" id="avh-Qy-rv8"/>
                             <constraint firstItem="qNH-S6-cju" firstAttribute="top" secondItem="WAd-fi-hMB" secondAttribute="bottom" constant="10" id="bJb-oJ-QPe"/>
+                            <constraint firstItem="qNH-S6-cju" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lY9-Xf-alc" secondAttribute="trailing" constant="10" id="ctD-EX-dVs"/>
                             <constraint firstItem="kBT-QR-Zaf" firstAttribute="top" secondItem="euA-x8-uWe" secondAttribute="top" constant="10" id="fm9-pJ-h32"/>
                             <constraint firstItem="LHp-5R-lpW" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="hla-iR-Rft"/>
                             <constraint firstItem="kBT-QR-Zaf" firstAttribute="leading" secondItem="euA-x8-uWe" secondAttribute="leading" constant="10" id="kf1-K4-MBl"/>
                             <constraint firstItem="WAd-fi-hMB" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="mmY-UE-WLv"/>
                             <constraint firstItem="JAj-xy-uJf" firstAttribute="centerY" secondItem="qNH-S6-cju" secondAttribute="centerY" id="nA8-0x-FC0"/>
-                            <constraint firstItem="qNH-S6-cju" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JAj-xy-uJf" secondAttribute="trailing" constant="10" id="pBx-hA-BS6"/>
+                            <constraint firstItem="lY9-Xf-alc" firstAttribute="centerY" secondItem="qNH-S6-cju" secondAttribute="centerY" id="nEK-ok-DDt"/>
+                            <constraint firstItem="lY9-Xf-alc" firstAttribute="leading" secondItem="JAj-xy-uJf" secondAttribute="trailing" constant="10" id="pBx-hA-BS6"/>
                             <constraint firstAttribute="trailing" secondItem="2vU-G9-Qlq" secondAttribute="trailing" constant="10" id="phc-CV-deT"/>
                             <constraint firstAttribute="bottom" secondItem="qNH-S6-cju" secondAttribute="bottom" constant="10" id="rL5-P3-mz4"/>
                         </constraints>
@@ -89,6 +97,7 @@
             <size key="customSize" width="946" height="230"/>
             <connections>
                 <outlet property="createDataLabel" destination="JAj-xy-uJf" id="7Mr-CQ-UAL"/>
+                <outlet property="createTimeLabel" destination="lY9-Xf-alc" id="F5x-EZ-gqA"/>
                 <outlet property="criticNameLabel" destination="WAd-fi-hMB" id="G7M-AQ-Pko"/>
                 <outlet property="movieImageView" destination="kBT-QR-Zaf" id="5yz-V4-KHM"/>
                 <outlet property="movieNameLabel" destination="LHp-5R-lpW" id="jn8-0j-edu"/>

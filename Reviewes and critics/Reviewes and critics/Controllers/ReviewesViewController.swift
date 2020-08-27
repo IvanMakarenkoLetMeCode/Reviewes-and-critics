@@ -73,51 +73,69 @@ class ReviewesViewController: UIViewController {
     
     private func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
-        let width = view.bounds.size.width / 2 - itemSpacing / 2 - sectionInset.left
+        let width = view.bounds.size.width - itemSpacing - sectionInset.left
         layout.estimatedItemSize = CGSize(width: width, height: 10)
         self.collectionView.collectionViewLayout = layout
     }
     
     func createSearchBar() {
+        //image
+        titleTxt.leftViewMode = .always
+        let imageView = UIImageView()
+        var emptyView = UIView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: "searchImage")
+        imageView.backgroundColor = .red
+        imageView.tintColor = .white
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+        emptyView = imageView
+        titleTxt.leftView = emptyView
+        
         titleTxt.textAlignment = .center
         
         //toolbar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        toolbar.backgroundColor = UIColor.yellow
         
         let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: #selector(searchPressed))
-        toolbar.setItems([searchBtn], animated: true)
-        
-//        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(CancelClicked))
-//        toolbar.setItems([cancelBtn], animated: true)
+        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelClicked))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([searchBtn] + [spaceButton] + [cancelBtn], animated: true)
         
         //assign toolbar
         titleTxt.inputAccessoryView = toolbar
     }
     
-//    @objc func CancelClicked(sender: UIBarButtonItem) {
-//        self.dismiss(animated: true, completion: nil)
-//    }
+    @objc func cancelClicked(sender: UIBarButtonItem) {
+        self.view.endEditing(true)
+    }
     
     @objc func searchPressed() {
         
         guard let text = titleTxt.text, !text.isEmpty else { return }
         query = text
-        self.view.endEditing(true)
         searchReviewesPlusFetch()
+        self.view.endEditing(true)
     }
     
     func createDatePicker() {
         
         dateTxt.textAlignment = .center
+        dateTxt.placeholder = "1900/01/01"
+        
         
         //toolbar
         let toolbar = UIToolbar()
         toolbar.sizeToFit()
+        toolbar.backgroundColor = UIColor.yellow
         
         //bar button
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        toolbar.setItems([doneBtn], animated: true)
+        let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelClicked))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([doneBtn] + [spaceButton] + [cancelBtn], animated: true)
         
         //assign toolbar
         dateTxt.inputAccessoryView = toolbar

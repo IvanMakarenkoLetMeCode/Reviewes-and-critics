@@ -37,8 +37,8 @@ class SessionForReviewes {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .secondsSince1970
                     let result = try decoder.decode(FullArray.self, from: data)
-                    print(result.hasMore)
-                    print (result.reviews)
+//                    print(result.hasMore)
+//                    print (result.reviews)
                     completionHandler(result, nil)
                 } else {
                     completionHandler(nil, .requestError)
