@@ -31,13 +31,9 @@ class CriticsCollectionViewCell: UICollectionViewCell {
         criticNameLabel.text  = movie.criticName ?? ""
         
         //Cover tranformation
-        if movie.cover?.resource?.src != nil {
             let urlTemplate = movie.cover?.resource?.src ?? ""
-            criticImageView.kf.setImage(with: URL(string: urlTemplate))
-        } else {
-            criticImageView.image = UIImage(named: "defaultImage")
-        }
-        
+//            criticImageView.kf.setImage(with: URL(string: urlTemplate))
+            criticImageView.kf.setImage(with: URL(string: urlTemplate), placeholder: UIImage(named: "defaultImage"))
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize,

@@ -41,16 +41,13 @@ class CriticsViewController: UIViewController {
     private func loadCritics() {
         
         sessionForCritics.loadCritics(reviewer: reviewer ?? "all") { [weak self] success, error in
-            guard let self = self, let success = success else {
-
-                print(String(describing: error))
-                return
+            if let success = success {
+                self?.critics += success.critics
             }
-
-            self.critics += success.critics
+            
             DispatchQueue.main.async {
                 
-                self.collectionView.reloadData()
+                self?.collectionView.reloadData()
             }
         }
         
@@ -96,8 +93,8 @@ class CriticsViewController: UIViewController {
     
     @objc func searchPressed() {
         
-        guard let text = titleTxt.text, !text.isEmpty else { return }
-        reviewer = text.replacingOccurrences(of: " ", with: "%20")
+        guard let text = titleTxt.text else { return }
+        reviewer = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         if reviewer == "" {
             reviewer = "all"
         }
