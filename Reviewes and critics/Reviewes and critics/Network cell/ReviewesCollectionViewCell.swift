@@ -51,6 +51,10 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
             var dataMovie = movie.createData ?? ""
             var timeMovie = movie.createData ?? ""
             dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
+            dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
+            dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
+            dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
+            dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
             timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
             createDataLabel.text = dataMovie
             createTimeLabel.text = timeMovie

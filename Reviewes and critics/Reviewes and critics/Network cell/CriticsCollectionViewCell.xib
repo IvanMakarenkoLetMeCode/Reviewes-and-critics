@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CriticsCollectionViewCell" customModule="Reviewes_and_critics" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="205"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="240" height="205"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Goo-Ht-emu">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="205"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="JKj-6A-pFX">
+                                <rect key="frame" x="10" y="10" width="220" height="163"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="163" id="F1p-rV-h2w"/>
+                                    <constraint firstAttribute="width" constant="220" id="qCe-bN-MmS"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CriticName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9j-dz-Ohe">
+                                <rect key="frame" x="76.5" y="183" width="87.5" height="12"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="JKj-6A-pFX" firstAttribute="top" secondItem="Goo-Ht-emu" secondAttribute="top" constant="10" id="9B9-mC-gnS"/>
+                            <constraint firstAttribute="trailing" secondItem="JKj-6A-pFX" secondAttribute="trailing" constant="10" id="DmT-5X-oyi"/>
+                            <constraint firstAttribute="bottom" secondItem="Q9j-dz-Ohe" secondAttribute="bottom" constant="10" id="MvV-Ff-53t"/>
+                            <constraint firstItem="Q9j-dz-Ohe" firstAttribute="top" secondItem="JKj-6A-pFX" secondAttribute="bottom" constant="10" id="QTT-Qz-cbV"/>
+                            <constraint firstItem="Q9j-dz-Ohe" firstAttribute="centerX" secondItem="JKj-6A-pFX" secondAttribute="centerX" id="dQA-hR-FwW"/>
+                            <constraint firstItem="JKj-6A-pFX" firstAttribute="leading" secondItem="Goo-Ht-emu" secondAttribute="leading" constant="10" id="dtm-h0-kPn"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Goo-Ht-emu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="YNY-mC-Nf2"/>
+                <constraint firstItem="Goo-Ht-emu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="gsQ-Jx-6ad"/>
+                <constraint firstAttribute="trailing" secondItem="Goo-Ht-emu" secondAttribute="trailing" id="oxF-0v-s1j"/>
+                <constraint firstAttribute="bottom" secondItem="Goo-Ht-emu" secondAttribute="bottom" id="yMz-s4-Xxo"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="240" height="205"/>
+            <connections>
+                <outlet property="criticImageView" destination="JKj-6A-pFX" id="QDp-QM-gTO"/>
+                <outlet property="criticNameLabel" destination="Q9j-dz-Ohe" id="q2g-rl-6Vq"/>
+            </connections>
+            <point key="canvasLocation" x="275.36231884057975" y="203.90625"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="defaultImage" width="118" height="88.5"/>
+    </resources>
+</document>

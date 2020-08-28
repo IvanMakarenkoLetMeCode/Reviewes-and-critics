@@ -12,6 +12,12 @@
 		2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */; };
 		2C4DA9EB24F3B5D500A77333 /* SessionForReviewes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */; };
 		2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9EC24F3B69F00A77333 /* NetworkError.swift */; };
+		2C5FC2B324F91A4C00AE6127 /* SessionForCritics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FC2B224F91A4C00AE6127 /* SessionForCritics.swift */; };
+		2C5FC2B524F9283000AE6127 /* Critics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FC2B424F9283000AE6127 /* Critics.swift */; };
+		2C5FC2B724F9286000AE6127 /* Critic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FC2B624F9286000AE6127 /* Critic.swift */; };
+		2C5FC2BA24F9293B00AE6127 /* CriticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FC2B824F9293B00AE6127 /* CriticsCollectionViewCell.swift */; };
+		2C5FC2BB24F9293B00AE6127 /* CriticsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5FC2B924F9293B00AE6127 /* CriticsCollectionViewCell.xib */; };
+		2C5FC2BD24F93C0F00AE6127 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FC2BC24F93C0F00AE6127 /* Resource.swift */; };
 		2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C024EFB9AE009CB026 /* AppDelegate.swift */; };
 		2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */; };
 		2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C424EFB9AE009CB026 /* ContainerViewController.swift */; };
@@ -47,6 +53,12 @@
 		2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticAboutViewController.swift; sourceTree = "<group>"; };
 		2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionForReviewes.swift; sourceTree = "<group>"; };
 		2C4DA9EC24F3B69F00A77333 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		2C5FC2B224F91A4C00AE6127 /* SessionForCritics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionForCritics.swift; sourceTree = "<group>"; };
+		2C5FC2B424F9283000AE6127 /* Critics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critics.swift; sourceTree = "<group>"; };
+		2C5FC2B624F9286000AE6127 /* Critic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Critic.swift; sourceTree = "<group>"; };
+		2C5FC2B824F9293B00AE6127 /* CriticsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C5FC2B924F9293B00AE6127 /* CriticsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CriticsCollectionViewCell.xib; sourceTree = "<group>"; };
+		2C5FC2BC24F93C0F00AE6127 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 		2C7157BD24EFB9AE009CB026 /* Reviewes and critics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reviewes and critics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7157C024EFB9AE009CB026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -150,9 +162,13 @@
 				2CBE12EF24F7A4C600397909 /* KeyboardToolbarButton.swift */,
 				2CBE12ED24F7A49600397909 /* KeyboardToolbar.swift */,
 				2C7157EE24F012FE009CB026 /* Multimedia.swift */,
+				2C5FC2BC24F93C0F00AE6127 /* Resource.swift */,
 				2C7157EC24F00C48009CB026 /* Review.swift */,
+				2C5FC2B624F9286000AE6127 /* Critic.swift */,
 				2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */,
+				2C5FC2B224F91A4C00AE6127 /* SessionForCritics.swift */,
 				2C85B31B24F552B10058E1E5 /* FullArray.swift */,
+				2C5FC2B424F9283000AE6127 /* Critics.swift */,
 				2C4DA9EC24F3B69F00A77333 /* NetworkError.swift */,
 			);
 			path = Models;
@@ -161,6 +177,8 @@
 		2C7157E424EFBA79009CB026 /* Network cell */ = {
 			isa = PBXGroup;
 			children = (
+				2C5FC2B824F9293B00AE6127 /* CriticsCollectionViewCell.swift */,
+				2C5FC2B924F9293B00AE6127 /* CriticsCollectionViewCell.xib */,
 				2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */,
 				2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */,
 			);
@@ -303,6 +321,7 @@
 				2C7157CA24EFB9AF009CB026 /* Assets.xcassets in Resources */,
 				2C7157C824EFB9AE009CB026 /* Main.storyboard in Resources */,
 				2CE9D0F524F646CD00A916B0 /* ReviewesCollectionViewCell.xib in Resources */,
+				2C5FC2BB24F9293B00AE6127 /* CriticsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,18 +405,23 @@
 			files = (
 				2C4DA9E524F3B27D00A77333 /* ReviewesViewController.swift in Sources */,
 				2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */,
+				2C5FC2BA24F9293B00AE6127 /* CriticsCollectionViewCell.swift in Sources */,
 				2C7157ED24F00C48009CB026 /* Review.swift in Sources */,
 				2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */,
 				2CBE12F024F7A4C600397909 /* KeyboardToolbarButton.swift in Sources */,
 				2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */,
+				2C5FC2B324F91A4C00AE6127 /* SessionForCritics.swift in Sources */,
 				2C4DA9EB24F3B5D500A77333 /* SessionForReviewes.swift in Sources */,
 				2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */,
+				2C5FC2B524F9283000AE6127 /* Critics.swift in Sources */,
 				2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */,
+				2C5FC2BD24F93C0F00AE6127 /* Resource.swift in Sources */,
 				2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */,
 				2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */,
 				2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */,
 				2CBE12EE24F7A49600397909 /* KeyboardToolbar.swift in Sources */,
 				2CE9D0F424F646CD00A916B0 /* ReviewesCollectionViewCell.swift in Sources */,
+				2C5FC2B724F9286000AE6127 /* Critic.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

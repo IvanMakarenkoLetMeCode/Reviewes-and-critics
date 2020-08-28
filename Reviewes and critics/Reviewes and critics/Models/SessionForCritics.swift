@@ -1,19 +1,19 @@
 //
-//  SessionForReviewes.swift
+//  SessionForCritics.swift
 //  Reviewes and critics
 //
-//  Created by Ivan on 24.08.2020.
+//  Created by Ivan on 28.08.2020.
 //  Copyright © 2020 Ivan. All rights reserved.
 //
 
 import UIKit
 
-class SessionForReviewes {
+class SessionForCritics {
     
-    func loadReviewes(openingDate: String, offset: Int, order: String, query: String, completionHandler: @escaping (FullArray?, NetworkError?) -> Void) {
+    func loadCritics(reviewer: String, completionHandler: @escaping (Critics?, NetworkError?) -> Void) {
         
         let session = URLSession.shared
-        let url = URL(string: "https://api.nytimes.com/svc/movies/v2/reviews/search.json?offset=\(offset)&opening-date=\(openingDate)&order=\(order)&query=\(query)&api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od")!
+        let url = URL(string: "https://api.nytimes.com/svc/movies/v2/critics/\(reviewer).json?api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od")!
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -36,9 +36,8 @@ class SessionForReviewes {
                 if let data = data {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .secondsSince1970
-                    let result = try decoder.decode(FullArray.self, from: data)
-//                    print(result.hasMore)
-//                    print (result.reviews)
+                    let result = try decoder.decode(Critics.self, from: data)
+//                    print (result.critics)
                     completionHandler(result, nil)
                 } else {
                     completionHandler(nil, .requestError)

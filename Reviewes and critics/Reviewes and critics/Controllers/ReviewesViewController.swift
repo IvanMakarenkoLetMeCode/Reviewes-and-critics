@@ -49,7 +49,7 @@ class ReviewesViewController: UIViewController {
     
     private func loadReviewes() {
         
-        sessionForReviewes.loadGames(openingDate: openingDate, offset: offset, order: order, query: query) { [weak self] success, error in
+        sessionForReviewes.loadReviewes(openingDate: openingDate, offset: offset, order: order, query: query) { [weak self] success, error in
             guard let self = self, let success = success else {
 
                 print(String(describing: error))
