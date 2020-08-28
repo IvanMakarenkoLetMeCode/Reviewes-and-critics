@@ -80,18 +80,21 @@ class ReviewesViewController: UIViewController {
     
     func createSearchBar() {
         //image
-        titleTxt.leftViewMode = .always
-        let imageView = UIImageView()
-        var emptyView = UIView()
+        let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))
+        let image = UIImage(named: "searchImage")
+        imageView.image = image
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "searchImage")
-        imageView.backgroundColor = .red
-        imageView.tintColor = .white
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
-        emptyView = imageView
+//        imageView.backgroundColor = .red
+//        imageView.tintColor = .white
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+        let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 40))
+        emptyView.addSubview(imageView)
+//        emptyView.backgroundColor = .green
+        titleTxt.leftViewMode = .always
         titleTxt.leftView = emptyView
         
+        //style
         titleTxt.textAlignment = .center
         
         //toolbar
@@ -121,10 +124,24 @@ class ReviewesViewController: UIViewController {
     }
     
     func createDatePicker() {
+        //image
+        let imageView = UIImageView(frame: CGRect(x: 8.0, y: 8.0, width: 24.0, height: 24.0))
+        let image = UIImage(named: "dateImage")
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFit
+//        imageView.backgroundColor = .red
+//        imageView.tintColor = .white
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+        let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 40))
+        emptyView.addSubview(imageView)
+//        emptyView.backgroundColor = .green
+        dateTxt.leftViewMode = .always
+        dateTxt.leftView = emptyView
         
+        //style
         dateTxt.textAlignment = .center
         dateTxt.placeholder = "1900/01/01"
-        
         
         //toolbar
         let toolbar = UIToolbar()
