@@ -26,7 +26,7 @@ class CriticsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupCollectionViewLayout()
+//        setupCollectionViewLayout()
         setupUI()
         createSearchBar()
         loadCritics()
@@ -107,11 +107,23 @@ class CriticsViewController: UIViewController {
         collectionView.register(UINib(nibName: criticCellIdentifier, bundle: nil), forCellWithReuseIdentifier: criticCellIdentifier)
     }
     
-    private func setupCollectionViewLayout() {
-        let layout = UICollectionViewFlowLayout()
-        let width = view.bounds.size.width / 2 - itemSpacing / 2 - sectionInset.left
-        layout.estimatedItemSize = CGSize(width: width, height: 10)
-        self.collectionView.collectionViewLayout = layout
+//    private func setupCollectionViewLayout() {
+//        let layout = UICollectionViewFlowLayout()
+//        let width = view.bounds.size.width / 2 - itemSpacing / 2 - sectionInset.left - sectionInset.right
+//        layout.estimatedItemSize = CGSize(width: width, height: 10)
+//        self.collectionView.collectionViewLayout = layout
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showDetail" {
+            if let vc = segue.destination as? UINavigationController {
+                if let criticVc = vc.topViewController as? CriticAboutViewController {
+                    if let critic = sender as? Critic {
+                        criticVc.reviewer = critic.criticName
+                    }
+                }
+            }
+        }
     }
     
 }
@@ -128,6 +140,12 @@ extension CriticsViewController: UICollectionViewDataSource, UICollectionViewDel
         let critic = critics[indexPath.row]
         cell.configure(with: critic)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let critic = critics[indexPath.row]
+        collectionView.deselectItem(at: indexPath, animated: true)
+        performSegue(withIdentifier: "showDetail", sender: critic)
     }
     
 //    func collectionView(_ collectionView:UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -155,5 +173,8 @@ extension CriticsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return itemSpacing
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width / 2 - itemSpacing / 2 - sectionInset.left - sectionInset.right , height: 205)
     }
 }

@@ -32,7 +32,7 @@ class ReviewesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupCollectionViewLayout()
+//        setupCollectionViewLayout()
         setupUI()
         createSearchBar()
         createDatePicker()
@@ -71,12 +71,12 @@ class ReviewesViewController: UIViewController {
         collectionView.register(UINib(nibName: reviewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: reviewCellIdentifier)
     }
     
-    private func setupCollectionViewLayout() {
-        let layout = UICollectionViewFlowLayout()
-        let width = view.bounds.size.width - itemSpacing - sectionInset.left
-        layout.estimatedItemSize = CGSize(width: width, height: 10)
-        self.collectionView.collectionViewLayout = layout
-    }
+//    private func setupCollectionViewLayout() {
+//        let layout = UICollectionViewFlowLayout()
+//        let width = view.bounds.size.width - itemSpacing - sectionInset.left
+//        layout.estimatedItemSize = CGSize(width: width, height: 10)
+//        self.collectionView.collectionViewLayout = layout
+//    }
     
     func createSearchBar() {
         //image
@@ -216,6 +216,9 @@ extension ReviewesViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return itemSpacing
+    }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left , height: 230)
     }
 }
 

@@ -45,7 +45,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNH-S6-cju">
-                                <rect key="frame" x="917" y="198" width="19" height="22"/>
+                                <rect key="frame" x="907" y="198" width="19" height="22"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="square.and.arrow.up" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAj-xy-uJf">
@@ -66,12 +67,12 @@
                             <constraint firstAttribute="trailing" secondItem="LHp-5R-lpW" secondAttribute="trailing" constant="10" id="2Gd-DA-l9c"/>
                             <constraint firstItem="2vU-G9-Qlq" firstAttribute="top" secondItem="LHp-5R-lpW" secondAttribute="bottom" constant="10" id="Eum-yd-RBV"/>
                             <constraint firstItem="WAd-fi-hMB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2vU-G9-Qlq" secondAttribute="bottom" constant="10" id="IXi-4t-IHU"/>
-                            <constraint firstAttribute="trailing" secondItem="qNH-S6-cju" secondAttribute="trailing" constant="10" id="IaG-lE-Hl1"/>
+                            <constraint firstAttribute="trailing" secondItem="qNH-S6-cju" secondAttribute="trailing" constant="20" id="IaG-lE-Hl1"/>
                             <constraint firstItem="LHp-5R-lpW" firstAttribute="top" secondItem="euA-x8-uWe" secondAttribute="top" constant="10" id="N2R-fF-xJ0"/>
                             <constraint firstItem="JAj-xy-uJf" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="QmP-Wm-ueA"/>
                             <constraint firstAttribute="trailing" secondItem="WAd-fi-hMB" secondAttribute="trailing" constant="10" id="Uz4-cf-7Eu"/>
                             <constraint firstItem="2vU-G9-Qlq" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="YRk-Oy-Zbh"/>
-                            <constraint firstAttribute="bottom" secondItem="kBT-QR-Zaf" secondAttribute="bottom" constant="10" id="avh-Qy-rv8"/>
+                            <constraint firstAttribute="bottom" secondItem="kBT-QR-Zaf" secondAttribute="bottom" priority="750" constant="10" id="avh-Qy-rv8"/>
                             <constraint firstItem="qNH-S6-cju" firstAttribute="top" secondItem="WAd-fi-hMB" secondAttribute="bottom" constant="10" id="bJb-oJ-QPe"/>
                             <constraint firstItem="qNH-S6-cju" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lY9-Xf-alc" secondAttribute="trailing" constant="10" id="ctD-EX-dVs"/>
                             <constraint firstItem="kBT-QR-Zaf" firstAttribute="top" secondItem="euA-x8-uWe" secondAttribute="top" constant="10" id="fm9-pJ-h32"/>
@@ -82,7 +83,7 @@
                             <constraint firstItem="lY9-Xf-alc" firstAttribute="centerY" secondItem="qNH-S6-cju" secondAttribute="centerY" id="nEK-ok-DDt"/>
                             <constraint firstItem="lY9-Xf-alc" firstAttribute="leading" secondItem="JAj-xy-uJf" secondAttribute="trailing" constant="10" id="pBx-hA-BS6"/>
                             <constraint firstAttribute="trailing" secondItem="2vU-G9-Qlq" secondAttribute="trailing" constant="10" id="phc-CV-deT"/>
-                            <constraint firstAttribute="bottom" secondItem="qNH-S6-cju" secondAttribute="bottom" constant="10" id="rL5-P3-mz4"/>
+                            <constraint firstAttribute="bottom" secondItem="qNH-S6-cju" secondAttribute="bottom" priority="750" constant="10" id="rL5-P3-mz4"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -104,7 +105,7 @@
                 <outlet property="reviewLabel" destination="2vU-G9-Qlq" id="bfT-5A-xP1"/>
                 <outlet property="shareButton" destination="qNH-S6-cju" id="UnW-KR-Swp"/>
             </connections>
-            <point key="canvasLocation" x="-26" y="-15"/>
+            <point key="canvasLocation" x="-26.086956521739133" y="-15.401785714285714"/>
         </collectionViewCell>
     </objects>
     <resources>

@@ -30,6 +30,7 @@
 		2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B31B24F552B10058E1E5 /* FullArray.swift */; };
 		2CBE12EE24F7A49600397909 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBE12ED24F7A49600397909 /* KeyboardToolbar.swift */; };
 		2CBE12F024F7A4C600397909 /* KeyboardToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBE12EF24F7A4C600397909 /* KeyboardToolbarButton.swift */; };
+		2CD7960524FD015400A75BC2 /* SessionForCriticReviwes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7960424FD015400A75BC2 /* SessionForCriticReviwes.swift */; };
 		2CE9D0F424F646CD00A916B0 /* ReviewesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */; };
 		2CE9D0F524F646CD00A916B0 /* ReviewesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */; };
 		2EA952FDCF248291DCE1B509 /* Pods_Reviewes_and_criticsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */; };
@@ -75,6 +76,7 @@
 		2C85B31B24F552B10058E1E5 /* FullArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArray.swift; sourceTree = "<group>"; };
 		2CBE12ED24F7A49600397909 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 		2CBE12EF24F7A4C600397909 /* KeyboardToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbarButton.swift; sourceTree = "<group>"; };
+		2CD7960424FD015400A75BC2 /* SessionForCriticReviwes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionForCriticReviwes.swift; sourceTree = "<group>"; };
 		2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewesCollectionViewCell.xib; sourceTree = "<group>"; };
 		5382EE0E78EF2A09494ED5DA /* Pods-Reviewes and criticsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reviewes and criticsTests.release.xcconfig"; path = "Target Support Files/Pods-Reviewes and criticsTests/Pods-Reviewes and criticsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				2C7157EC24F00C48009CB026 /* Review.swift */,
 				2C5FC2B624F9286000AE6127 /* Critic.swift */,
 				2C4DA9EA24F3B5D500A77333 /* SessionForReviewes.swift */,
+				2CD7960424FD015400A75BC2 /* SessionForCriticReviwes.swift */,
 				2C5FC2B224F91A4C00AE6127 /* SessionForCritics.swift */,
 				2C85B31B24F552B10058E1E5 /* FullArray.swift */,
 				2C5FC2B424F9283000AE6127 /* Critics.swift */,
@@ -403,6 +406,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CD7960524FD015400A75BC2 /* SessionForCriticReviwes.swift in Sources */,
 				2C4DA9E524F3B27D00A77333 /* ReviewesViewController.swift in Sources */,
 				2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */,
 				2C5FC2BA24F9293B00AE6127 /* CriticsCollectionViewCell.swift in Sources */,

@@ -13,7 +13,8 @@ class SessionForCritics {
     func loadCritics(reviewer: String, completionHandler: @escaping (Critics?, NetworkError?) -> Void) {
         
         let session = URLSession.shared
-        let url = URL(string: "https://api.nytimes.com/svc/movies/v2/critics/\(reviewer).json?api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od")!
+        let text = reviewer.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        guard let url = URL(string: "https://api.nytimes.com/svc/movies/v2/critics/\(text ?? "").json?api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od") else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"

@@ -12,11 +12,15 @@ struct Critic: Codable
 {
     var criticName: String?
     var cover: Resource?
+    var status: String?
+    var bio: String?
     
     
     
     enum CodingKeys: String, CodingKey {
         case criticName = "display_name"
         case cover = "multimedia"
+        case status
+        case bio
     }
 }
