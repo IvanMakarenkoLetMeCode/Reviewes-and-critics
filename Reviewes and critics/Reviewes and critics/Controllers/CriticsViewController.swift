@@ -27,6 +27,7 @@ class CriticsViewController: UIViewController {
         super.viewDidLoad()
         
 //        setupCollectionViewLayout()
+        navigationItem.title = "Critics"
         setupUI()
         createSearchBar()
         loadCritics()
@@ -94,7 +95,7 @@ class CriticsViewController: UIViewController {
     @objc func searchPressed() {
         
         guard let text = titleTxt.text else { return }
-        reviewer = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        reviewer = text
         if reviewer == "" {
             reviewer = "all"
         }

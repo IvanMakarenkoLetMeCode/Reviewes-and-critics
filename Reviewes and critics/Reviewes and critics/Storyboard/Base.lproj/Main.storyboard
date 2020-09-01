@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Z6f-Od-6KA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jMl-Nf-Utm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -15,7 +15,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cUy-cy-nHm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.96861225370000004" green="0.62748366590000004" blue="0.44701945780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -28,10 +27,10 @@
             </objects>
             <point key="canvasLocation" x="-1630" y="-295"/>
         </scene>
-        <!--View Controller-->
+        <!--Container View Controller-->
         <scene sceneID="mHH-RH-cdW">
             <objects>
-                <viewController id="iz4-lo-1gh" sceneMemberID="viewController">
+                <viewController id="iz4-lo-1gh" customClass="ContainerViewController" customModule="Reviewes_and_critics" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dv7-Lk-wb7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -45,6 +44,10 @@
                                             <segment title="Reviewes"/>
                                             <segment title="Critics"/>
                                         </segments>
+                                        <color key="selectedSegmentTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <segue destination="0QI-X3-mdQ" kind="push" id="Eqf-hR-Kuu"/>
+                                        </connections>
                                     </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97647058823529409" green="0.68235294117647061" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -67,24 +70,32 @@
                     <navigationItem key="navigationItem" id="E1S-cM-tfa">
                         <nil key="title"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="backgroungSCView" destination="8Ti-G4-vwK" id="uGm-U0-c5g"/>
+                        <outlet property="segmentedControl" destination="yCb-so-o3r" id="v6D-72-jPq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJo-Em-clq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-797.10144927536237" y="-294.64285714285711"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Reviewes Navigation Controller-->
         <scene sceneID="j6J-91-QtP">
             <objects>
-                <navigationController id="q7h-n0-Aqe" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PHd-Cb-P8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController storyboardIdentifier="Reviewes Navigation Controller" id="q7h-n0-Aqe" userLabel="Reviewes Navigation Controller" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Uzl-dp-inb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.97647058819999999" green="0.68235294120000001" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
-                        <segue destination="0QI-X3-mdQ" kind="relationship" relationship="rootViewController" id="Q5B-ps-ijo"/>
+                        <segue destination="0QI-X3-mdQ" kind="relationship" relationship="rootViewController" id="KaT-f3-5Sj"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="PHd-Cb-P8O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="328" y="-295"/>
         </scene>
@@ -165,6 +176,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mbY-Ti-Fr0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.70980392160000005" green="0.8862745098" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="G27-C6-dYf" kind="relationship" relationship="rootViewController" id="5AK-77-2wd"/>
@@ -244,7 +259,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aMB-hb-mxm">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.70980392160000005" green="0.8862745098" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <connections>
@@ -371,4 +385,7 @@
             <point key="canvasLocation" x="3342.0289855072465" y="375.66964285714283"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Eqf-hR-Kuu"/>
+    </inferredMetricsTieBreakers>
 </document>

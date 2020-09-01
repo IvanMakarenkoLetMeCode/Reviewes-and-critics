@@ -13,7 +13,8 @@ class SessionForReviewes {
     func loadReviewes(openingDate: String, offset: Int, order: String, query: String, completionHandler: @escaping (FullArray?, NetworkError?) -> Void) {
         
         let session = URLSession.shared
-        guard let url = URL(string: "https://api.nytimes.com/svc/movies/v2/reviews/search.json?offset=\(offset)&opening-date=\(openingDate)&order=\(order)&query=\(query)&api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od") else { return }
+        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        guard let url = URL(string: "https://api.nytimes.com/svc/movies/v2/reviews/search.json?offset=\(offset)&opening-date=\(openingDate)&order=\(order)&query=\(text ?? "")&api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
 //        request.setValue("a8164b4ecc5046707f37a65bf92abde1", forHTTPHeaderField: "user-key")

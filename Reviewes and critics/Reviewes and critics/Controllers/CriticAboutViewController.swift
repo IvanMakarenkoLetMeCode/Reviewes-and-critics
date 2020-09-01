@@ -49,8 +49,9 @@ class CriticAboutViewController: UIViewController {
                 self?.criticNameLabel.text = success?.critics.compactMap { $0.criticName }.joined()
                 
                 //Critic bio label
-                self?.criticBioLabel.text = success?.critics.compactMap { $0.bio }.joined()
                 self?.bioTxt = success?.critics.compactMap { $0.bio }.joined()
+                self?.criticBioLabel.text = self?.bioTxt
+//                self?.criticBioLabel.text = self?.bioTxt?.strippingHTML()
                 
                 //Critic status
                 self?.criticStatusButton.setTitle(success?.critics.compactMap { $0.status }.joined(), for: .normal)
@@ -59,8 +60,8 @@ class CriticAboutViewController: UIViewController {
                 self?.criticStatusButton.layer.masksToBounds = true
                 self?.criticStatusButton.layer.borderColor = #colorLiteral(red: 0.7096869946, green: 0.8863267303, blue: 0.9802721143, alpha: 1)
                 self?.criticStatusButton.layer.backgroundColor = #colorLiteral(red: 0.7096869946, green: 0.8863267303, blue: 0.9802721143, alpha: 1)
-                let size = self?.criticStatusButton.frame.height
-                self?.criticStatusButton.layer.cornerRadius = size! / 2
+//                let size = self?.criticStatusButton.frame.height
+                self?.criticStatusButton.layer.cornerRadius = 10.0
                 
                 //Critic image
                 let urlTemplate = success?.critics.compactMap { $0.cover }.compactMap { $0.resource }.compactMap { $0.src }.joined() ?? ""
@@ -154,5 +155,32 @@ extension CriticAboutViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left , height: 230)
+    }
+}
+
+extension String {
+    /// Using regular expressions is not a correct approach for converting HTML to text, there are many pitfalls, like handling <style> and <script> tags. On platforms that support Foundation, one alternative is to use NSAttributedString's basic HTML support. Care must be taken to handle extraneous newlines and object replacement characters left over from the conversion process. It is a good idea to cache complex generated NSAttributedStrings either through storage or NSCache.
+    func strippingHTML() throws -> String?  {
+        if isEmpty {
+            return nil
+        }
+        if let data = data(using: .utf8) {
+            let attributedString = try NSAttributedString(data: data,
+                                                          options: [.documentType : NSAttributedString.DocumentType.html,
+                                                                    .characterEncoding: String.Encoding.utf8.rawValue],
+                                                          documentAttributes: nil)
+            var string = attributedString.string
+            // These steps are optional, and it depends on how you want handle whitespace and newlines
+            string = string.replacingOccurrences(of: "\u{FFFC}",
+                                                 with: "",
+                                                 options: .regularExpression,
+                                                 range: nil)
+            string = string.replacingOccurrences(of: "(\n){3,}",
+                                                 with: "\n\n",
+                                                 options: .regularExpression,
+                                                 range: nil)
+            return string.trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        return nil
     }
 }

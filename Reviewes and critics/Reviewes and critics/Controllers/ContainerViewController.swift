@@ -10,9 +10,24 @@ import UIKit
 
 class ContainerViewController: UIViewController {
     
+    @IBOutlet weak var backgroungSCView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    var reviewesViewController: ReviewesViewController!
+    var criticsViewController: CriticsViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        configureReviewesViewController()
+        
+    }
+    
+    func configureReviewesViewController() {
+        reviewesViewController = ReviewesViewController()
+        addChild(reviewesViewController)
+        view.addSubview(reviewesViewController.view)
+        reviewesViewController.didMove(toParent: self)
     }
     
 }

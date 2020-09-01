@@ -33,6 +33,7 @@ class ReviewesViewController: UIViewController {
         super.viewDidLoad()
         
 //        setupCollectionViewLayout()
+        navigationItem.title = "Reviewes"
         setupUI()
         createSearchBar()
         createDatePicker()
