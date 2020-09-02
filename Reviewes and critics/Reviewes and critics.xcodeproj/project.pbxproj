@@ -18,6 +18,8 @@
 		2C5FC2BA24F9293B00AE6127 /* CriticsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FC2B824F9293B00AE6127 /* CriticsCollectionViewCell.swift */; };
 		2C5FC2BB24F9293B00AE6127 /* CriticsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5FC2B924F9293B00AE6127 /* CriticsCollectionViewCell.xib */; };
 		2C5FC2BD24F93C0F00AE6127 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5FC2BC24F93C0F00AE6127 /* Resource.swift */; };
+		2C68352724FFDAF300F9FA69 /* CriticInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C68352524FFDAF300F9FA69 /* CriticInfoCollectionViewCell.swift */; };
+		2C68352824FFDAF300F9FA69 /* CriticInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C68352624FFDAF300F9FA69 /* CriticInfoCollectionViewCell.xib */; };
 		2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C024EFB9AE009CB026 /* AppDelegate.swift */; };
 		2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */; };
 		2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7157C424EFB9AE009CB026 /* ContainerViewController.swift */; };
@@ -30,6 +32,9 @@
 		2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C85B31B24F552B10058E1E5 /* FullArray.swift */; };
 		2CBE12EE24F7A49600397909 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBE12ED24F7A49600397909 /* KeyboardToolbar.swift */; };
 		2CBE12F024F7A4C600397909 /* KeyboardToolbarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBE12EF24F7A4C600397909 /* KeyboardToolbarButton.swift */; };
+		2CC6051524FF74F00097717D /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6051424FF74F00097717D /* String+Ext.swift */; };
+		2CC6051724FFB3F40097717D /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6051624FFB3F40097717D /* UIView+Ext.swift */; };
+		2CC6051924FFB40A0097717D /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC6051824FFB40A0097717D /* UIViewController+Ext.swift */; };
 		2CD7960524FD015400A75BC2 /* SessionForCriticReviwes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CD7960424FD015400A75BC2 /* SessionForCriticReviwes.swift */; };
 		2CE9D0F424F646CD00A916B0 /* ReviewesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */; };
 		2CE9D0F524F646CD00A916B0 /* ReviewesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */; };
@@ -60,6 +65,8 @@
 		2C5FC2B824F9293B00AE6127 /* CriticsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsCollectionViewCell.swift; sourceTree = "<group>"; };
 		2C5FC2B924F9293B00AE6127 /* CriticsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CriticsCollectionViewCell.xib; sourceTree = "<group>"; };
 		2C5FC2BC24F93C0F00AE6127 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		2C68352524FFDAF300F9FA69 /* CriticInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticInfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		2C68352624FFDAF300F9FA69 /* CriticInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CriticInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		2C7157BD24EFB9AE009CB026 /* Reviewes and critics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Reviewes and critics.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C7157C024EFB9AE009CB026 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C7157C224EFB9AE009CB026 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +83,9 @@
 		2C85B31B24F552B10058E1E5 /* FullArray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullArray.swift; sourceTree = "<group>"; };
 		2CBE12ED24F7A49600397909 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 		2CBE12EF24F7A4C600397909 /* KeyboardToolbarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbarButton.swift; sourceTree = "<group>"; };
+		2CC6051424FF74F00097717D /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		2CC6051624FFB3F40097717D /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		2CC6051824FFB40A0097717D /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		2CD7960424FD015400A75BC2 /* SessionForCriticReviwes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionForCriticReviwes.swift; sourceTree = "<group>"; };
 		2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CE9D0F324F646CD00A916B0 /* ReviewesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewesCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -129,6 +139,7 @@
 		2C7157BF24EFB9AE009CB026 /* Reviewes and critics */ = {
 			isa = PBXGroup;
 			children = (
+				2CC6051324FF74D80097717D /* Extensions */,
 				2C7157E224EFBA49009CB026 /* System */,
 				2C7157E324EFBA5E009CB026 /* Models */,
 				2C7157E424EFBA79009CB026 /* Network cell */,
@@ -180,6 +191,8 @@
 		2C7157E424EFBA79009CB026 /* Network cell */ = {
 			isa = PBXGroup;
 			children = (
+				2C68352524FFDAF300F9FA69 /* CriticInfoCollectionViewCell.swift */,
+				2C68352624FFDAF300F9FA69 /* CriticInfoCollectionViewCell.xib */,
 				2C5FC2B824F9293B00AE6127 /* CriticsCollectionViewCell.swift */,
 				2C5FC2B924F9293B00AE6127 /* CriticsCollectionViewCell.xib */,
 				2CE9D0F224F646CD00A916B0 /* ReviewesCollectionViewCell.swift */,
@@ -214,6 +227,16 @@
 				2C7157C924EFB9AF009CB026 /* Assets.xcassets */,
 			);
 			path = Files;
+			sourceTree = "<group>";
+		};
+		2CC6051324FF74D80097717D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2CC6051424FF74F00097717D /* String+Ext.swift */,
+				2CC6051624FFB3F40097717D /* UIView+Ext.swift */,
+				2CC6051824FFB40A0097717D /* UIViewController+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		56E247196C7BD682E858AB99 /* Frameworks */ = {
@@ -324,6 +347,7 @@
 				2C7157CA24EFB9AF009CB026 /* Assets.xcassets in Resources */,
 				2C7157C824EFB9AE009CB026 /* Main.storyboard in Resources */,
 				2CE9D0F524F646CD00A916B0 /* ReviewesCollectionViewCell.xib in Resources */,
+				2C68352824FFDAF300F9FA69 /* CriticInfoCollectionViewCell.xib in Resources */,
 				2C5FC2BB24F9293B00AE6127 /* CriticsCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,6 +435,8 @@
 				2C7157EF24F012FE009CB026 /* Multimedia.swift in Sources */,
 				2C5FC2BA24F9293B00AE6127 /* CriticsCollectionViewCell.swift in Sources */,
 				2C7157ED24F00C48009CB026 /* Review.swift in Sources */,
+				2CC6051924FFB40A0097717D /* UIViewController+Ext.swift in Sources */,
+				2C68352724FFDAF300F9FA69 /* CriticInfoCollectionViewCell.swift in Sources */,
 				2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */,
 				2CBE12F024F7A4C600397909 /* KeyboardToolbarButton.swift in Sources */,
 				2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */,
@@ -418,9 +444,11 @@
 				2C4DA9EB24F3B5D500A77333 /* SessionForReviewes.swift in Sources */,
 				2C7157C124EFB9AE009CB026 /* AppDelegate.swift in Sources */,
 				2C5FC2B524F9283000AE6127 /* Critics.swift in Sources */,
+				2CC6051724FFB3F40097717D /* UIView+Ext.swift in Sources */,
 				2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */,
 				2C5FC2BD24F93C0F00AE6127 /* Resource.swift in Sources */,
 				2C85B31C24F552B10058E1E5 /* FullArray.swift in Sources */,
+				2CC6051524FF74F00097717D /* String+Ext.swift in Sources */,
 				2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */,
 				2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */,
 				2CBE12EE24F7A49600397909 /* KeyboardToolbar.swift in Sources */,
@@ -589,6 +617,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FVK56LF4WM;
 				INFOPLIST_FILE = "Reviewes and critics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -608,6 +637,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FVK56LF4WM;
 				INFOPLIST_FILE = "Reviewes and critics/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

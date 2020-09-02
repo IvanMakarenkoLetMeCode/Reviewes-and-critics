@@ -17,7 +17,6 @@ class CriticAboutViewController: UIViewController {
     @IBOutlet weak var criticBioLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var bioTxt: String? = ""
     var offset = 0
     var hasMore = true
     var reviews: [Review] = []
@@ -27,7 +26,7 @@ class CriticAboutViewController: UIViewController {
     
     private let reviewCellIdentifier = String(describing: ReviewesCollectionViewCell.self)
     
-    private let sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 10)
+    private let sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
        let lineSpacing: CGFloat = 20
        let itemSpacing: CGFloat = 10
     
@@ -36,25 +35,40 @@ class CriticAboutViewController: UIViewController {
         
 //        setupCollectionViewLayout()
         setupUI()
-        loadCriticInfo()
+//        loadCriticInfo()
         loadReviewes()
+        setUpNavigation(text: reviewer ?? "")
         
+    }
+    
+    func setUpNavigation(text: String) {
+        
+        navigationItem.title = text
+        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4809939901, green: 0.8862745098, blue: 0.9803921569, alpha: 1)
+        navigationController?.navigationBar.isTranslucent = false
     }
     
     private func loadCriticInfo() {
         sessionForCritics.loadCritics(reviewer: reviewer ?? "") { [weak self] success, error in
             DispatchQueue.main.async {
                 
+                guard let critic = success?.critics.first else { return }
+                
                 //Critic name label
                 self?.criticNameLabel.text = success?.critics.compactMap { $0.criticName }.joined()
                 
                 //Critic bio label
-                self?.bioTxt = success?.critics.compactMap { $0.bio }.joined()
-                self?.criticBioLabel.text = self?.bioTxt
+                let bioTxt = critic.bio?.convertHTMLStringToAttributed()
+                bioTxt?.addAttributes([
+                    .font: UIFont.systemFont(ofSize: 13),
+                    .foregroundColor: UIColor.lightGray
+                    ],
+                                      range: NSRange(location: 0, length: bioTxt?.string.count ?? 0))
+                self?.criticBioLabel.attributedText = bioTxt
 //                self?.criticBioLabel.text = self?.bioTxt?.strippingHTML()
                 
                 //Critic status
-                self?.criticStatusButton.setTitle(success?.critics.compactMap { $0.status }.joined(), for: .normal)
+                self?.criticStatusButton.setTitle(critic.status, for: .normal)
                 self?.criticStatusButton.addTarget(self, action: #selector(self?.buttonAction), for: .touchUpInside)
                 self?.criticStatusButton.layer.borderWidth = 1.0
                 self?.criticStatusButton.layer.masksToBounds = true
@@ -64,7 +78,7 @@ class CriticAboutViewController: UIViewController {
                 self?.criticStatusButton.layer.cornerRadius = 10.0
                 
                 //Critic image
-                let urlTemplate = success?.critics.compactMap { $0.cover }.compactMap { $0.resource }.compactMap { $0.src }.joined() ?? ""
+                let urlTemplate = critic.cover?.resource?.src ?? ""
                 self?.criticImageView.kf.setImage(with: URL(string: urlTemplate), placeholder: UIImage(named: "defaultImage"))
             }
         }
@@ -158,29 +172,3 @@ extension CriticAboutViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension String {
-    /// Using regular expressions is not a correct approach for converting HTML to text, there are many pitfalls, like handling <style> and <script> tags. On platforms that support Foundation, one alternative is to use NSAttributedString's basic HTML support. Care must be taken to handle extraneous newlines and object replacement characters left over from the conversion process. It is a good idea to cache complex generated NSAttributedStrings either through storage or NSCache.
-    func strippingHTML() throws -> String?  {
-        if isEmpty {
-            return nil
-        }
-        if let data = data(using: .utf8) {
-            let attributedString = try NSAttributedString(data: data,
-                                                          options: [.documentType : NSAttributedString.DocumentType.html,
-                                                                    .characterEncoding: String.Encoding.utf8.rawValue],
-                                                          documentAttributes: nil)
-            var string = attributedString.string
-            // These steps are optional, and it depends on how you want handle whitespace and newlines
-            string = string.replacingOccurrences(of: "\u{FFFC}",
-                                                 with: "",
-                                                 options: .regularExpression,
-                                                 range: nil)
-            string = string.replacingOccurrences(of: "(\n){3,}",
-                                                 with: "\n\n",
-                                                 options: .regularExpression,
-                                                 range: nil)
-            return string.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        return nil
-    }
-}
