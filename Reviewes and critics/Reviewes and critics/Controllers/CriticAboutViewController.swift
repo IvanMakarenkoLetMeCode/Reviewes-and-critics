@@ -11,10 +11,6 @@ import Kingfisher
 
 class CriticAboutViewController: UIViewController {
     
-    @IBOutlet weak var criticImageView: UIImageView!
-    @IBOutlet weak var criticNameLabel: UILabel!
-    @IBOutlet weak var criticStatusButton: UIButton!
-    @IBOutlet weak var criticBioLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var offset = 0
@@ -53,39 +49,8 @@ class CriticAboutViewController: UIViewController {
             DispatchQueue.main.async {
                 
                 guard let critic = success?.critics.first else { return }
-                
-                //Critic name label
-                self?.criticNameLabel.text = success?.critics.compactMap { $0.criticName }.joined()
-                
-                //Critic bio label
-                let bioTxt = critic.bio?.convertHTMLStringToAttributed()
-                bioTxt?.addAttributes([
-                    .font: UIFont.systemFont(ofSize: 13),
-                    .foregroundColor: UIColor.lightGray
-                    ],
-                                      range: NSRange(location: 0, length: bioTxt?.string.count ?? 0))
-                self?.criticBioLabel.attributedText = bioTxt
-//                self?.criticBioLabel.text = self?.bioTxt?.strippingHTML()
-                
-                //Critic status
-                self?.criticStatusButton.setTitle(critic.status, for: .normal)
-                self?.criticStatusButton.addTarget(self, action: #selector(self?.buttonAction), for: .touchUpInside)
-                self?.criticStatusButton.layer.borderWidth = 1.0
-                self?.criticStatusButton.layer.masksToBounds = true
-                self?.criticStatusButton.layer.borderColor = #colorLiteral(red: 0.7096869946, green: 0.8863267303, blue: 0.9802721143, alpha: 1)
-                self?.criticStatusButton.layer.backgroundColor = #colorLiteral(red: 0.7096869946, green: 0.8863267303, blue: 0.9802721143, alpha: 1)
-//                let size = self?.criticStatusButton.frame.height
-                self?.criticStatusButton.layer.cornerRadius = 10.0
-                
-                //Critic image
-                let urlTemplate = critic.cover?.resource?.src ?? ""
-                self?.criticImageView.kf.setImage(with: URL(string: urlTemplate), placeholder: UIImage(named: "defaultImage"))
             }
         }
-    }
-    
-    @objc func buttonAction(sender: UIButton!) {
-        criticBioLabel.isHidden.toggle()
     }
     
     @objc private func searchReviewesPlusFetch() {
