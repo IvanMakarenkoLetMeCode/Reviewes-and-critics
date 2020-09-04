@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2B726F2502300B0054EF4C /* CellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B726E2502300B0054EF4C /* CellProtocol.swift */; };
+		2C2B72712502319D0054EF4C /* CriticInfoICellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B72702502319D0054EF4C /* CriticInfoICellItem.swift */; };
+		2C2B7273250231C10054EF4C /* ReviewesCellItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2B7272250231C10054EF4C /* ReviewesCellItem.swift */; };
 		2C4DA9E524F3B27D00A77333 /* ReviewesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E424F3B27D00A77333 /* ReviewesViewController.swift */; };
 		2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E624F3B2AC00A77333 /* CriticsViewController.swift */; };
 		2C4DA9E924F3B38500A77333 /* CriticAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */; };
@@ -54,6 +57,9 @@
 
 /* Begin PBXFileReference section */
 		22E3B1F1165A5787E82C849B /* Pods_Reviewes_and_criticsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Reviewes_and_criticsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C2B726E2502300B0054EF4C /* CellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellProtocol.swift; sourceTree = "<group>"; };
+		2C2B72702502319D0054EF4C /* CriticInfoICellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticInfoICellItem.swift; sourceTree = "<group>"; };
+		2C2B7272250231C10054EF4C /* ReviewesCellItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesCellItem.swift; sourceTree = "<group>"; };
 		2C4DA9E424F3B27D00A77333 /* ReviewesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewesViewController.swift; sourceTree = "<group>"; };
 		2C4DA9E624F3B2AC00A77333 /* CriticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticsViewController.swift; sourceTree = "<group>"; };
 		2C4DA9E824F3B38500A77333 /* CriticAboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriticAboutViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,7 @@
 		2C7157E324EFBA5E009CB026 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2C2B726E2502300B0054EF4C /* CellProtocol.swift */,
 				2CBE12EF24F7A4C600397909 /* KeyboardToolbarButton.swift */,
 				2CBE12ED24F7A49600397909 /* KeyboardToolbar.swift */,
 				2C7157EE24F012FE009CB026 /* Multimedia.swift */,
@@ -191,6 +198,8 @@
 		2C7157E424EFBA79009CB026 /* Network cell */ = {
 			isa = PBXGroup;
 			children = (
+				2C2B72702502319D0054EF4C /* CriticInfoICellItem.swift */,
+				2C2B7272250231C10054EF4C /* ReviewesCellItem.swift */,
 				2C68352524FFDAF300F9FA69 /* CriticInfoCollectionViewCell.swift */,
 				2C68352624FFDAF300F9FA69 /* CriticInfoCollectionViewCell.xib */,
 				2C5FC2B824F9293B00AE6127 /* CriticsCollectionViewCell.swift */,
@@ -436,9 +445,11 @@
 				2C5FC2BA24F9293B00AE6127 /* CriticsCollectionViewCell.swift in Sources */,
 				2C7157ED24F00C48009CB026 /* Review.swift in Sources */,
 				2CC6051924FFB40A0097717D /* UIViewController+Ext.swift in Sources */,
+				2C2B72712502319D0054EF4C /* CriticInfoICellItem.swift in Sources */,
 				2C68352724FFDAF300F9FA69 /* CriticInfoCollectionViewCell.swift in Sources */,
 				2C7157C524EFB9AE009CB026 /* ContainerViewController.swift in Sources */,
 				2CBE12F024F7A4C600397909 /* KeyboardToolbarButton.swift in Sources */,
+				2C2B726F2502300B0054EF4C /* CellProtocol.swift in Sources */,
 				2C4DA9E724F3B2AC00A77333 /* CriticsViewController.swift in Sources */,
 				2C5FC2B324F91A4C00AE6127 /* SessionForCritics.swift in Sources */,
 				2C4DA9EB24F3B5D500A77333 /* SessionForReviewes.swift in Sources */,
@@ -451,6 +462,7 @@
 				2CC6051524FF74F00097717D /* String+Ext.swift in Sources */,
 				2C7157C324EFB9AE009CB026 /* SceneDelegate.swift in Sources */,
 				2C4DA9ED24F3B69F00A77333 /* NetworkError.swift in Sources */,
+				2C2B7273250231C10054EF4C /* ReviewesCellItem.swift in Sources */,
 				2CBE12EE24F7A49600397909 /* KeyboardToolbar.swift in Sources */,
 				2CE9D0F424F646CD00A916B0 /* ReviewesCollectionViewCell.swift in Sources */,
 				2C5FC2B724F9286000AE6127 /* Critic.swift in Sources */,

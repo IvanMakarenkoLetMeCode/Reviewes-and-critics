@@ -15,12 +15,15 @@ class CriticAboutViewController: UIViewController {
     
     var offset = 0
     var hasMore = true
-    var reviews: [Review] = []
+    var dataSource: [VCellPresenting] = []
     var reviewer: String?
     let sessionForCritics = SessionForCritics()
     let sessionForReviewes = SessionForCriticReviwes()
     
+    
+    
     private let reviewCellIdentifier = String(describing: ReviewesCollectionViewCell.self)
+    private let criticInfoCellIdentifier = String(describing: CriticInfoCollectionViewCell.self)
     
     private let sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
        let lineSpacing: CGFloat = 20
@@ -46,9 +49,18 @@ class CriticAboutViewController: UIViewController {
     
     private func loadCriticInfo() {
         sessionForCritics.loadCritics(reviewer: reviewer ?? "") { [weak self] success, error in
+            
+            guard let critics = success?.critics else { return }
+            let items = critics.map({ critic -> CriticInfoICellItem in
+                var imageCritic: URL?
+                if let urlString = critic.cover?.resource?.src {
+                    imageCritic = URL(string: urlString)
+                }
+                return CriticInfoICellItem(criticName: critic.criticName, imageCritic: imageCritic, status: critic.status, bio: critic.bio)
+            })
+            self?.dataSource += items
             DispatchQueue.main.async {
-                
-                guard let critic = success?.critics.first else { return }
+                self?.collectionView.reloadData()
             }
         }
     }
@@ -56,7 +68,7 @@ class CriticAboutViewController: UIViewController {
     @objc private func searchReviewesPlusFetch() {
             
         offset = 0
-        reviews = []
+        dataSource = []
         loadReviewes()
     }
     
@@ -69,7 +81,19 @@ class CriticAboutViewController: UIViewController {
                 return
             }
 
-            self.reviews += success.reviews
+            let reviews = success.reviews
+            let items = reviews.map({ review -> ReviewesCellItem in
+                var imageUrl: URL?
+                if let urlString = review.cover?.src {
+                    imageUrl = URL(string: urlString)
+                }
+                return ReviewesCellItem(imageUrl: imageUrl,
+                                        movieName: review.movieName,
+                                        filmAbout: review.review,
+                                        criticName: review.criticName,
+                                        dataReview: review.createData)
+            })
+            self.dataSource += items
             self.hasMore = success.hasMore
             DispatchQueue.main.async {
                 
@@ -96,19 +120,30 @@ class CriticAboutViewController: UIViewController {
 // MARK: - UICollectionViewDataSource
 extension CriticAboutViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return reviews.count
+        return dataSource.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellIdentifier, for: indexPath) as? ReviewesCollectionViewCell else { fatalError() }
-        let review = self.reviews[indexPath.row]
-        cell.configure(with: review)
-        return cell
+        let item = dataSource[indexPath.row]
+        switch item.type {
+        case .header:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: criticInfoCellIdentifier, for: indexPath) as? CriticInfoCollectionViewCell else { fatalError() }
+            if let cellItem = item as? CriticInfoICellItem {
+                cell.configure(with: cellItem)
+            }
+            return cell
+        case .reviewes:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellIdentifier, for: indexPath) as? ReviewesCollectionViewCell else { fatalError() }
+            if let cellItem = item as? ReviewesCellItem {
+                cell.configure(with: cellItem)
+            }
+            return cell
+        }
     }
     
     func collectionView(_ collectionView:UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let lastRow = indexPath.row
-        if lastRow == reviews.count - 1 && hasMore {
+        if lastRow == dataSource.count - 1 && hasMore {
             fetchNextPage()
         }
     }

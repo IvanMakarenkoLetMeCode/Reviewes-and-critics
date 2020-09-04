@@ -20,12 +20,12 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
         // Initialization code
     }
     
-    func configure(with movie: Critic) {
+    func configure(with item: CriticInfoICellItem) {
         //Critic name label
-        criticNameLabel.text = movie.criticName
+        criticNameLabel.text = item.criticName
 
         //Critic bio label
-        let bioTxt = movie.bio?.convertHTMLStringToAttributed()
+        let bioTxt = item.bio?.convertHTMLStringToAttributed()
         bioTxt?.addAttributes([
             .font: UIFont.systemFont(ofSize: 13),
             .foregroundColor: UIColor.lightGray
@@ -35,7 +35,7 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
         //                self?.criticBioLabel.text = self?.bioTxt?.strippingHTML()
 
         //Critic status
-        criticStatusButton.setTitle(movie.status, for: .normal)
+        criticStatusButton.setTitle(item.status, for: .normal)
         criticStatusButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         criticStatusButton.layer.borderWidth = 1.0
         criticStatusButton.layer.masksToBounds = true
@@ -45,8 +45,8 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
         criticStatusButton.layer.cornerRadius = 10.0
 
         //Critic image
-        let urlTemplate = movie.cover?.resource?.src ?? ""
-        criticImageView.kf.setImage(with: URL(string: urlTemplate), placeholder: UIImage(named: "defaultImage"))
+        let urlTemplate = item.imageCritic
+        criticImageView.kf.setImage(with: urlTemplate, placeholder: UIImage(named: "defaultImage"))
     }
     
     @objc func buttonAction(sender: UIButton!) {

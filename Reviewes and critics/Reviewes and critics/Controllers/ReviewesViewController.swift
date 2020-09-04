@@ -16,7 +16,7 @@ class ReviewesViewController: UIViewController {
     
     let datePicker = UIDatePicker()
     let sessionForReviewes = SessionForReviewes()
-    var reviews: [Review] = []
+    var reviews: [ReviewesCellItem] = []
     var hasMore = true
     
     var openingDate = "1900-01-01"
@@ -55,8 +55,19 @@ class ReviewesViewController: UIViewController {
                 print(String(describing: error))
                 return
             }
-
-            self.reviews += success.reviews
+            let reviews = success.reviews
+            let items = reviews.map({ review -> ReviewesCellItem in
+                var imageUrl: URL?
+                if let urlString = review.cover?.src {
+                    imageUrl = URL(string: urlString)
+                }
+                return ReviewesCellItem(imageUrl: imageUrl,
+                                        movieName: review.movieName,
+                                        filmAbout: review.review,
+                                        criticName: review.criticName,
+                                        dataReview: review.createData)
+            })
+            self.reviews += items
             self.hasMore = success.hasMore
             DispatchQueue.main.async {
                 
@@ -186,8 +197,8 @@ extension ReviewesViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellIdentifier, for: indexPath) as? ReviewesCollectionViewCell else { fatalError() }
-        let review = reviews[indexPath.row]
-        cell.configure(with: review)
+        let cellItem = reviews[indexPath.row]
+        cell.configure(with: cellItem)
         return cell
     }
     
