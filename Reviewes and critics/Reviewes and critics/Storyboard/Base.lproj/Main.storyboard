@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jMl-Nf-Utm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jMl-Nf-Utm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -284,9 +284,14 @@
                         <viewLayoutGuide key="safeArea" id="7Yw-Y4-sPi"/>
                     </view>
                     <navigationItem key="navigationItem" id="xTu-0r-zcy">
-                        <barButtonItem key="leftBarButtonItem" title="Close" id="oGk-tX-NY1"/>
+                        <barButtonItem key="leftBarButtonItem" title="Close" id="oGk-tX-NY1">
+                            <connections>
+                                <action selector="closeButtonTapped:" destination="Skn-7F-Bdk" id="9sT-0c-G1X"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="closeButton" destination="oGk-tX-NY1" id="ZYO-hA-oPr"/>
                         <outlet property="collectionView" destination="qGB-5q-hNn" id="Lxg-s5-LKl"/>
                     </connections>
                 </viewController>

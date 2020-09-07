@@ -12,6 +12,7 @@ import Kingfisher
 class CriticAboutViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var closeButton: UIBarButtonItem!
     
     var offset = 0
     var hasMore = true
@@ -25,16 +26,17 @@ class CriticAboutViewController: UIViewController {
     private let reviewCellIdentifier = String(describing: ReviewesCollectionViewCell.self)
     private let criticInfoCellIdentifier = String(describing: CriticInfoCollectionViewCell.self)
     
-    private let sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+    private let sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
        let lineSpacing: CGFloat = 20
        let itemSpacing: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupCollectionViewLayout()
+        setupCollectionViewLayout()
         setupUI()
-//        loadCriticInfo()
+        loadCriticInfo()
+        
         loadReviewes()
         setUpNavigation(text: reviewer ?? "")
         
@@ -58,8 +60,12 @@ class CriticAboutViewController: UIViewController {
                 }
                 return CriticInfoICellItem(criticName: critic.criticName, imageCritic: imageCritic, status: critic.status, bio: critic.bio)
             })
-            self?.dataSource += items
+            if let critic = items.first {
+                
+                self?.dataSource.insert(critic, at: 0)
+            }
             DispatchQueue.main.async {
+                
                 self?.collectionView.reloadData()
             }
         }
@@ -105,15 +111,22 @@ class CriticAboutViewController: UIViewController {
     
     private func setupUI() {
         
+        collectionView.register(UINib(nibName: criticInfoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: criticInfoCellIdentifier)
         collectionView.register(UINib(nibName: reviewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: reviewCellIdentifier)
+        
     }
     
-//    private func setupCollectionViewLayout() {
-//        let layout = UICollectionViewFlowLayout()
-//        let width = view.bounds.size.width - itemSpacing - sectionInset.left
-//        layout.estimatedItemSize = CGSize(width: width, height: 10)
-//        self.collectionView.collectionViewLayout = layout
-//    }
+    private func setupCollectionViewLayout() {
+        let layout = UICollectionViewFlowLayout()
+        let width = view.bounds.size.width - itemSpacing - sectionInset.left
+        layout.estimatedItemSize = CGSize(width: width, height: 100)
+        self.collectionView.collectionViewLayout = layout
+    }
+    
+    @IBAction func closeButtonTapped(_ sender: UIBarButtonItem) {
+        
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
     
 }
 
@@ -167,8 +180,8 @@ extension CriticAboutViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return itemSpacing
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left , height: 230)
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left , height: 230)
+//    }
 }
 
