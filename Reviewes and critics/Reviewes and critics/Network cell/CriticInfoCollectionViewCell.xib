@@ -19,21 +19,21 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uda-yA-Abi">
                         <rect key="frame" x="0.0" y="0.0" width="753" height="281"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="98" translatesAutoresizingMaskIntoConstraints="NO" id="oKc-Mt-g8a">
-                                <rect key="frame" x="10" y="10" width="733" height="261"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dsp-6f-mE0">
+                                <rect key="frame" x="10" y="10" width="273" height="189"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Dak-bd-wzQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="273" height="261"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HIY-gY-ODe">
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="163"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kYU-pY-oBx">
-                                                <rect key="frame" x="0.0" y="98" width="163" height="163"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="kYU-pY-oBx" secondAttribute="height" multiplier="1:1" id="RGT-g9-KvX"/>
                                                     <constraint firstAttribute="height" constant="163" id="ZIc-dQ-2f9"/>
                                                 </constraints>
                                             </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="iuV-fB-o4p">
-                                                <rect key="frame" x="173" y="169.5" width="100" height="91.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-z5-rpY">
+                                                <rect key="frame" x="173" y="71.5" width="100" height="91.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnz-Da-eUS">
                                                         <rect key="frame" x="0.0" y="0.0" width="33.5" height="20.5"/>
@@ -46,7 +46,9 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="100" id="M1d-Gf-jyY"/>
                                                         </constraints>
-                                                        <state key="normal" title="Status"/>
+                                                        <state key="normal" title="Status">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="buttonAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="kFv-AR-3pS"/>
                                                         </connections>
@@ -55,10 +57,10 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np1-cT-kof">
-                                        <rect key="frame" x="0.0" y="0.0" width="24.5" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np1-cT-kof">
+                                        <rect key="frame" x="0.0" y="173" width="19.5" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -66,10 +68,11 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="oKc-Mt-g8a" secondAttribute="bottom" constant="10" id="1fY-hY-k0q"/>
-                            <constraint firstItem="oKc-Mt-g8a" firstAttribute="top" secondItem="uda-yA-Abi" secondAttribute="top" constant="10" id="Nwd-ms-J22"/>
-                            <constraint firstItem="oKc-Mt-g8a" firstAttribute="leading" secondItem="uda-yA-Abi" secondAttribute="leading" constant="10" id="XMH-Xw-Oet"/>
-                            <constraint firstAttribute="trailing" secondItem="oKc-Mt-g8a" secondAttribute="trailing" constant="10" id="jbF-g3-QaC"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dsp-6f-mE0" secondAttribute="trailing" constant="10" id="1ae-tE-orV"/>
+                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dsp-6f-mE0" secondAttribute="bottom" constant="10" id="Dwm-gw-SQB"/>
+                            <constraint firstItem="dsp-6f-mE0" firstAttribute="leading" secondItem="uda-yA-Abi" secondAttribute="leading" constant="10" id="E1y-tE-tKP"/>
+                            <constraint firstItem="dsp-6f-mE0" firstAttribute="top" secondItem="uda-yA-Abi" secondAttribute="top" constant="10" id="bON-mX-1tU"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="np1-cT-kof" secondAttribute="trailing" constant="10" id="d8q-GV-jz0"/>
                         </constraints>
                     </view>
                 </subviews>

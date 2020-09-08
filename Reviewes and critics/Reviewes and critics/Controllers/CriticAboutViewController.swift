@@ -27,7 +27,7 @@ class CriticAboutViewController: UIViewController {
     private let criticInfoCellIdentifier = String(describing: CriticInfoCollectionViewCell.self)
     
     private let sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-       let lineSpacing: CGFloat = 20
+       let lineSpacing: CGFloat = 10
        let itemSpacing: CGFloat = 10
     
     override func viewDidLoad() {
@@ -69,13 +69,6 @@ class CriticAboutViewController: UIViewController {
                 self?.collectionView.reloadData()
             }
         }
-    }
-    
-    @objc private func searchReviewesPlusFetch() {
-            
-        offset = 0
-        dataSource = []
-        loadReviewes()
     }
     
     private func loadReviewes() {

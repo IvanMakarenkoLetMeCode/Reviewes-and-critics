@@ -16,11 +16,11 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var criticStatusButton: UIButton!
     @IBOutlet weak var criticBioLabel: UILabel!
     
-    lazy var width: NSLayoutConstraint = {
-        let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
-        width.isActive = true
-        return width
-    }()
+//    lazy var width: NSLayoutConstraint = {
+//        let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
+//        width.isActive = true
+//        return width
+//    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
