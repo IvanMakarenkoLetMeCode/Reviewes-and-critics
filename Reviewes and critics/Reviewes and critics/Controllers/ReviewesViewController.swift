@@ -163,6 +163,9 @@ class ReviewesViewController: UIViewController {
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelClicked))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        #warning("Review note 9")
+        //Зачем таким образом передавать айтемы, несколькими массивами?
+        //Почему просто не написать [doneBtn, spaceButton, cancelBtn]?
         toolbar.setItems([doneBtn] + [spaceButton] + [cancelBtn], animated: true)
         
         //assign toolbar

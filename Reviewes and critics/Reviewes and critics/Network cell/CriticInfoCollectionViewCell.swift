@@ -50,6 +50,13 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
 
         //Critic status
         criticStatusButton.setTitle(item.status, for: .normal)
+        #warning("Review note 5")
+        //В отличие от тайтла, добавление таргета на кнопку, а также border и прочее - это все конфигурация компонента.
+        //То есть ты один раз поставить таргет и рамку и больше это не будет изменяться. Поэтому есть смысл такие
+        //конфигурации проводить один раз - во время создания ячейки. В жизненном цикле ячейки для этих целей
+        //отлично подходит метод awakeFromNib, который вызывается один раз, как только ячейки загружается из xib.
+        //В методе configure, который вызывается из cellForRow, и может быть вызван неоднократно, есть смысл вызывать
+        //только то, что может меняться, типа текста, картинки, каких-то изменений состояния и т.д.
         criticStatusButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         criticStatusButton.layer.borderWidth = 1.0
         criticStatusButton.layer.masksToBounds = true

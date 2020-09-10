@@ -40,11 +40,19 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
 //        dateFormatter.locale = Locale(identifier: "en_US")
         
         //Movie name tranformation
+        #warning("Review note 7")
+        //Не совсем понятен смысл установки в аттрибутах просто жирного шрифта.
+        //Почему просто у лейбла на xib не поставить жирный шрифт?
         let boldText  = item.movieName ?? ""
         let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)]
         let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
         movieNameLabel.attributedText = attributedString
         
+        #warning("Review note 8")
+        //Как, наверное, помнишь, целью создания CellItem помимо прочего было выведение любых трансформаций данных
+        //из самой ячейки. Но тут ты делаешь все трансформации. Лучше будет все эит insert и прочее провести при
+        //инициализации ReviewesCellItem, чтобы в самой ячейке у тебя была только строка
+        //createTimeLabel.text = item.time и тд
         //Data tranformation
         if item.dataReview != nil
         {

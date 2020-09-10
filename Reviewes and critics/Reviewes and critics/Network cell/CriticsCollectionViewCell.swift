@@ -31,6 +31,10 @@ class CriticsCollectionViewCell: UICollectionViewCell {
         criticNameLabel.text  = movie.criticName ?? ""
         
         //Cover tranformation
+        #warning("Review note 6")
+        //Раз уже мы в CriticInfoCollectionViewCell перешли к использованию CellItem, с подготовкой нужного контента
+        //заранее, давай это делать для всех ячеек. Пусть эта ячейка вместо модель Critic конфигурируется моделью
+        // CriticsCellItem. Чтобы не было внутри ячейки инициализации URL, как сейчас
             let urlTemplate = movie.cover?.resource?.src ?? ""
 //            criticImageView.kf.setImage(with: URL(string: urlTemplate))
             criticImageView.kf.setImage(with: URL(string: urlTemplate), placeholder: UIImage(named: "defaultImage"))
