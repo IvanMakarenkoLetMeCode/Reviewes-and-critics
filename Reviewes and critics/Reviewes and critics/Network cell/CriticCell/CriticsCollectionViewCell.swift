@@ -25,15 +25,18 @@ class CriticsCollectionViewCell: UICollectionViewCell {
         criticImageView.kf.cancelDownloadTask()
     }
     
-    func configure(with movie: Critic) {
+    func configure(with item: CriticCellItem) {
         
         //Movie name tranformation
-        criticNameLabel.text  = movie.criticName ?? ""
+        criticNameLabel.text  = item.criticName
         
         //Cover tranformation
-            let urlTemplate = movie.cover?.resource?.src ?? ""
-//            criticImageView.kf.setImage(with: URL(string: urlTemplate))
-            criticImageView.kf.setImage(with: URL(string: urlTemplate), placeholder: UIImage(named: "defaultImage"))
+        #warning("Review note 6 - fix")
+        //Раз уже мы в CriticInfoCollectionViewCell перешли к использованию CellItem, с подготовкой нужного контента
+        //заранее, давай это делать для всех ячеек. Пусть эта ячейка вместо модель Critic конфигурируется моделью
+        // CriticsCellItem. Чтобы не было внутри ячейки инициализации URL, как сейчас
+        let urlTemplate = item.imageUrl
+            criticImageView.kf.setImage(with: urlTemplate, placeholder: UIImage(named: "defaultImage"))
     }
     
     override func systemLayoutSizeFitting(_ targetSize: CGSize,

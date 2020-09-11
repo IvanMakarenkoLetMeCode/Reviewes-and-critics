@@ -1,28 +1,35 @@
 //
-//  SessionForReviewes.swift
+//  SessionForCriticReviwes.swift
 //  Reviewes and critics
 //
-//  Created by Ivan on 24.08.2020.
+//  Created by Ivan on 31.08.2020.
 //  Copyright © 2020 Ivan. All rights reserved.
 //
 
 import UIKit
 
-class SessionForReviewes {
+class SessionForCriticReviwes {
     
-    func loadReviewes(openingDate: String, offset: Int, order: String, query: String, completionHandler: @escaping (FullArray?, NetworkError?) -> Void) {
+    func loadReviewes(offset: Int?, reviewer: String?, completionHandler: @escaping (FullArray?, NetworkError?) -> Void) {
         
         let session = URLSession.shared
-        let text = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        guard let url = URL(string: "https://api.nytimes.com/svc/movies/v2/reviews/search.json?offset=\(offset)&opening-date=\(openingDate)&order=\(order)&query=\(text ?? "")&api-key=kAWTclAFKCoK0d646trPJ2xXyiulF5Od") else { return }
+        let apiKey = Constants()
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = "api.nytimes.com"
+        components.path = "/svc/movies/v2/reviews/search.json?"
+        var queryItems = [
+            URLQueryItem(name: "api-key", value: apiKey.apiKey),
+            URLQueryItem(name: "reviewer", value: reviewer),
+        ]
+        if let offsetKey = offset, offsetKey != 0 {
+            queryItems.append(URLQueryItem(name: "offset", value: String(offsetKey)))
+        }
+        components.queryItems = queryItems
+        guard let url = components.url else { return }
+        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-//        request.setValue("a8164b4ecc5046707f37a65bf92abde1", forHTTPHeaderField: "user-key")
-//        request.setValue("application/json", forHTTPHeaderField: "Accept")
-//
-//        if let jsonData = jsonString.data(using: .utf8) {
-//            request.httpBody = jsonData
-//        }
         
         let task = session.dataTask(with: request) { (data, response, error) in
             

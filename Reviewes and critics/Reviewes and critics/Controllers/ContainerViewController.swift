@@ -77,7 +77,8 @@ class ContainerViewController: UIViewController {
         if #available(iOS 13.0, *) {
             sender.selectedSegmentTintColor = color
         } else {
-            // Fallback on earlier versions
+//            sender.tintColor = color
+//            sender.layer.borderColor =
         }
     }
     

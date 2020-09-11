@@ -15,5 +15,8 @@ struct ReviewesCellItem: VCellPresenting {
     var movieName: String?
     var filmAbout: String?
     var criticName: String?
-    var dataReview: String?
+    var date: String?
+    var time: String?
+    
+    
 }

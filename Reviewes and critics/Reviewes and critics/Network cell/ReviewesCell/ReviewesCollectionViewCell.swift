@@ -33,35 +33,21 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
     
     func configure(with item: ReviewesCellItem) {
         
-        //Data formatter
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateStyle = .medium
-//        dateFormatter.timeStyle = .none
-//        dateFormatter.locale = Locale(identifier: "en_US")
-        
         //Movie name tranformation
-        let boldText  = item.movieName ?? ""
-        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 16)]
-        let attributedString = NSMutableAttributedString(string:boldText, attributes:attrs)
-        movieNameLabel.attributedText = attributedString
+        #warning("Review note 7 - fix")
+        //Не совсем понятен смысл установки в аттрибутах просто жирного шрифта.
+        //Почему просто у лейбла на xib не поставить жирный шрифт?
+        movieNameLabel.text = item.movieName
         
+        #warning("Review note 8 - fix")
+        //Как, наверное, помнишь, целью создания CellItem помимо прочего было выведение любых трансформаций данных
+        //из самой ячейки. Но тут ты делаешь все трансформации. Лучше будет все эит insert и прочее провести при
+        //инициализации ReviewesCellItem, чтобы в самой ячейке у тебя была только строка
+        //createTimeLabel.text = item.time и тд
         //Data tranformation
-        if item.dataReview != nil
-        {
-            var dataMovie = item.dataReview ?? ""
-            var timeMovie = item.dataReview ?? ""
-            dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
-            dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
-            dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
-            dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
-            dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
-            timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
-            createDataLabel.text = dataMovie
-            createTimeLabel.text = timeMovie
-        } else
-        {
-            createDataLabel.text = "No dates"
-        }
+        createDataLabel.text = item.date
+        createTimeLabel.text = item.time
+
         
         //Review tranformation
         if item.filmAbout != nil

@@ -14,7 +14,7 @@ class CriticsViewController: UIViewController {
     @IBOutlet weak var titleTxt: UITextField!
     
     let sessionForCritics = SessionForCritics()
-    var critics: [Critic] = []
+    var critics: [CriticCellItem] = []
     var reviewer: String? = "all"
     
     private let criticCellIdentifier = String(describing: CriticsCollectionViewCell.self)
@@ -42,13 +42,25 @@ class CriticsViewController: UIViewController {
     private func loadCritics() {
         
         sessionForCritics.loadCritics(reviewer: reviewer ?? "all") { [weak self] success, error in
-            if let success = success {
-                self?.critics += success.critics
+            guard let self = self, let success = success else {
+
+                print(String(describing: error))
+                return
             }
             
+            let critics = success.critics
+            let items = critics.map({ critic -> CriticCellItem in
+                var imageUrl: URL?
+                if let urlString = critic.cover?.resource?.src {
+                    imageUrl = URL(string: urlString)
+                }
+                return CriticCellItem(criticName: critic.criticName, imageUrl: imageUrl)
+            })
+            
+                self.critics += items
             DispatchQueue.main.async {
                 
-                self?.collectionView.reloadData()
+                self.collectionView.reloadData()
             }
         }
         
@@ -62,8 +74,7 @@ class CriticsViewController: UIViewController {
             imageView.contentMode = .scaleAspectFit
     //        imageView.backgroundColor = .red
     //        imageView.tintColor = .white
-    //        imageView.translatesAutoresizingMaskIntoConstraints = false
-    //        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+
             let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 40))
             emptyView.addSubview(imageView)
     //        emptyView.backgroundColor = .green
@@ -75,14 +86,14 @@ class CriticsViewController: UIViewController {
             titleTxt.placeholder = "Enter full Name"
             
             //toolbar
-            let toolbar = UIToolbar()
-            toolbar.sizeToFit()
+            let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
+//            toolbar.sizeToFit()
             toolbar.backgroundColor = UIColor.lightGray
             
             let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: #selector(searchPressed))
             let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelClicked))
             let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-            toolbar.setItems([searchBtn] + [spaceButton] + [cancelBtn], animated: true)
+        toolbar.setItems([searchBtn, spaceButton, cancelBtn], animated: true)
             
             //assign toolbar
             titleTxt.inputAccessoryView = toolbar
@@ -119,7 +130,7 @@ class CriticsViewController: UIViewController {
         if segue.identifier == "showDetail" {
             if let vc = segue.destination as? UINavigationController {
                 if let criticVc = vc.topViewController as? CriticAboutViewController {
-                    if let critic = sender as? Critic {
+                    if let critic = sender as? CriticCellItem {
                         criticVc.reviewer = critic.criticName
                     }
                 }
@@ -138,8 +149,8 @@ extension CriticsViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: criticCellIdentifier, for: indexPath) as? CriticsCollectionViewCell else { fatalError() }
-        let critic = critics[indexPath.row]
-        cell.configure(with: critic)
+        let cellItem = critics[indexPath.row]
+        cell.configure(with: cellItem)
         return cell
     }
     
@@ -148,18 +159,6 @@ extension CriticsViewController: UICollectionViewDataSource, UICollectionViewDel
         collectionView.deselectItem(at: indexPath, animated: true)
         performSegue(withIdentifier: "showDetail", sender: critic)
     }
-    
-//    func collectionView(_ collectionView:UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        let lastRow = indexPath.row
-//        if lastRow == critics.count - 1 && hasMore {
-//            fetchNextPage()
-//        }
-//    }
-//
-//    private func fetchNextPage() {
-//        offset += 20
-//        loadReviewes()
-//    }
 }
 
 extension CriticsViewController: UICollectionViewDelegateFlowLayout {

@@ -20,22 +20,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="753" height="281"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dsp-6f-mE0">
-                                <rect key="frame" x="10" y="10" width="273" height="189"/>
+                                <rect key="frame" x="10" y="10" width="733" height="261"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HIY-gY-ODe">
-                                        <rect key="frame" x="0.0" y="0.0" width="273" height="163"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="273" height="235"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kYU-pY-oBx">
-                                                <rect key="frame" x="0.0" y="0.0" width="163" height="163"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="kYU-pY-oBx" secondAttribute="height" multiplier="1:1" id="RGT-g9-KvX"/>
-                                                    <constraint firstAttribute="height" constant="163" id="ZIc-dQ-2f9"/>
-                                                </constraints>
+                                                <rect key="frame" x="0.0" y="72" width="163" height="163"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="41" translatesAutoresizingMaskIntoConstraints="NO" id="lfs-z5-rpY">
-                                                <rect key="frame" x="173" y="71.5" width="100" height="91.5"/>
+                                                <rect key="frame" x="173" y="143.5" width="100" height="91.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnz-Da-eUS">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gnz-Da-eUS">
                                                         <rect key="frame" x="0.0" y="0.0" width="33.5" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -58,7 +54,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Bio" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="np1-cT-kof">
-                                        <rect key="frame" x="0.0" y="173" width="19.5" height="16"/>
+                                        <rect key="frame" x="0.0" y="245" width="19.5" height="16"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -68,9 +64,10 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="dsp-6f-mE0" secondAttribute="trailing" constant="10" id="1ae-tE-orV"/>
-                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="dsp-6f-mE0" secondAttribute="bottom" constant="10" id="Dwm-gw-SQB"/>
+                            <constraint firstAttribute="trailing" secondItem="dsp-6f-mE0" secondAttribute="trailing" constant="10" id="1ae-tE-orV"/>
+                            <constraint firstAttribute="bottom" secondItem="dsp-6f-mE0" secondAttribute="bottom" constant="10" id="Dwm-gw-SQB"/>
                             <constraint firstItem="dsp-6f-mE0" firstAttribute="leading" secondItem="uda-yA-Abi" secondAttribute="leading" constant="10" id="E1y-tE-tKP"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Gnz-Da-eUS" secondAttribute="trailing" constant="10" id="XMc-eY-lae"/>
                             <constraint firstItem="dsp-6f-mE0" firstAttribute="top" secondItem="uda-yA-Abi" secondAttribute="top" constant="10" id="bON-mX-1tU"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="np1-cT-kof" secondAttribute="trailing" constant="10" id="d8q-GV-jz0"/>
                         </constraints>

@@ -19,9 +19,10 @@ class ReviewesViewController: UIViewController {
     var reviews: [ReviewesCellItem] = []
     var hasMore = true
     
-    var openingDate = "1900-01-01"
+    var typeRequest = "all"
+    var openingDate = ""
     var offset = 0
-    var order = "by-opening-date"
+    var order = ""
     var query = ""
     private let reviewCellIdentifier = String(describing: ReviewesCollectionViewCell.self)
     
@@ -49,23 +50,39 @@ class ReviewesViewController: UIViewController {
     
     private func loadReviewes() {
         
-        sessionForReviewes.loadReviewes(openingDate: openingDate, offset: offset, order: order, query: query) { [weak self] success, error in
+        sessionForReviewes.loadReviewes(typeRequest: typeRequest,openingDate: openingDate, offset: offset, order: order, query: query) { [weak self] success, error in
             guard let self = self, let success = success else {
-
+                
                 print(String(describing: error))
                 return
             }
             let reviews = success.reviews
             let items = reviews.map({ review -> ReviewesCellItem in
                 var imageUrl: URL?
+                var dataMovie: String
+                var timeMovie: String
                 if let urlString = review.cover?.src {
                     imageUrl = URL(string: urlString)
+                }
+                if review.createData != nil {
+                    dataMovie = review.createData ?? ""
+                    timeMovie = review.createData ?? ""
+                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
+                    dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
+                    dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
+                    dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
+                    dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
+                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
+                } else {
+                    dataMovie = "No dates"
+                    timeMovie = ""
                 }
                 return ReviewesCellItem(imageUrl: imageUrl,
                                         movieName: review.movieName,
                                         filmAbout: review.review,
                                         criticName: review.criticName,
-                                        dataReview: review.createData)
+                                        date: dataMovie,
+                                        time: timeMovie)
             })
             self.reviews += items
             self.hasMore = success.hasMore
@@ -109,14 +126,14 @@ class ReviewesViewController: UIViewController {
         titleTxt.textAlignment = .center
         
         //toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
+//        toolbar.sizeToFit()
         toolbar.backgroundColor = UIColor.lightGray
         
         let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: #selector(searchPressed))
         let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelClicked))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([searchBtn] + [spaceButton] + [cancelBtn], animated: true)
+        toolbar.setItems([searchBtn, spaceButton, cancelBtn], animated: true)
         
         //assign toolbar
         titleTxt.inputAccessoryView = toolbar
@@ -130,6 +147,9 @@ class ReviewesViewController: UIViewController {
         
         guard let text = titleTxt.text, !text.isEmpty else { return }
         query = text
+        typeRequest = "search"
+        order = "by-title"
+        openingDate = ""
         searchReviewesPlusFetch()
         self.view.endEditing(true)
     }
@@ -152,18 +172,21 @@ class ReviewesViewController: UIViewController {
         
         //style
         dateTxt.textAlignment = .center
-        dateTxt.placeholder = "1900/01/01"
+        dateTxt.placeholder = "2020/01/01"
         
         //toolbar
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
+//        toolbar.sizeToFit()
         toolbar.backgroundColor = UIColor.lightGray
         
         //bar button
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
         let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelClicked))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        toolbar.setItems([doneBtn] + [spaceButton] + [cancelBtn], animated: true)
+        #warning("Review note 9 - fix")
+        //Зачем таким образом передавать айтемы, несколькими массивами?
+        //Почему просто не написать [doneBtn, spaceButton, cancelBtn]?
+        toolbar.setItems([doneBtn, spaceButton, cancelBtn], animated: true)
         
         //assign toolbar
         dateTxt.inputAccessoryView = toolbar
@@ -180,7 +203,9 @@ class ReviewesViewController: UIViewController {
         let date = Date()
         let formate = date.getFormattedDate(format: "yyyy/MM/dd", datePicker: datePicker)
         openingDate = date.getFormattedDate(format: "yyyy-MM-dd", datePicker: datePicker)
-        
+        typeRequest = "search"
+        order = "by-opening-date"
+        query = ""
         dateTxt.text = formate
         self.view.endEditing(true)
         searchReviewesPlusFetch()

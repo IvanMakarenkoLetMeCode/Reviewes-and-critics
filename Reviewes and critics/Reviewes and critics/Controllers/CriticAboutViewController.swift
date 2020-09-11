@@ -83,14 +83,31 @@ class CriticAboutViewController: UIViewController {
             let reviews = success.reviews
             let items = reviews.map({ review -> ReviewesCellItem in
                 var imageUrl: URL?
+                var dataMovie: String
+                var timeMovie: String
                 if let urlString = review.cover?.src {
                     imageUrl = URL(string: urlString)
                 }
+                if review.createData != nil {
+                    dataMovie = review.createData ?? ""
+                    timeMovie = review.createData ?? ""
+                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
+                    dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
+                    dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
+                    dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
+                    dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
+                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
+                } else {
+                    dataMovie = "No dates"
+                    timeMovie = ""
+                }
+                
                 return ReviewesCellItem(imageUrl: imageUrl,
                                         movieName: review.movieName,
                                         filmAbout: review.review,
                                         criticName: review.criticName,
-                                        dataReview: review.createData)
+                                        date: dataMovie,
+                                        time: timeMovie)
             })
             self.dataSource += items
             self.hasMore = success.hasMore
