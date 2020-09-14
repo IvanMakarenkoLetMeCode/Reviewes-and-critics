@@ -47,7 +47,6 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
         //В методе configure, который вызывается из cellForRow, и может быть вызван неоднократно, есть смысл вызывать
         //только то, что может меняться, типа текста, картинки, каких-то изменений состояния и т.д.
         criticStatusButton.setTitle(item.status, for: .normal)
-        
 
         //Critic image
         let urlTemplate = item.imageCritic
