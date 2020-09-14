@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ReviewesViewController: UIViewController {
     
@@ -82,7 +83,8 @@ class ReviewesViewController: UIViewController {
                                         filmAbout: review.review,
                                         criticName: review.criticName,
                                         date: dataMovie,
-                                        time: timeMovie)
+                                        time: timeMovie,
+                                        linkUrl: review.link?.url)
             })
             self.reviews += items
             self.hasMore = success.hasMore
@@ -224,6 +226,7 @@ extension ReviewesViewController: UICollectionViewDataSource, UICollectionViewDe
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellIdentifier, for: indexPath) as? ReviewesCollectionViewCell else { fatalError() }
         let cellItem = reviews[indexPath.row]
         cell.configure(with: cellItem)
+        cell.delegate = self
         return cell
     }
     
@@ -263,5 +266,26 @@ extension Date {
         let formatter = DateFormatter()
         formatter.dateFormat = format
         return formatter.string(from: datePicker.date)
+    }
+}
+
+extension ReviewesViewController: ReviewesCollectionViewCellDelegate {
+    func shareButtonTouchUpIns(_ cell: ReviewesCollectionViewCell) {
+        guard let index = collectionView.indexPath(for: cell)?.row else { return }
+        var text = "Hey! Check out this article on The New York Times:\r"
+        text += reviews[index].linkUrl ?? ""
+        guard let urlTemplate = reviews[index].imageUrl else { return }
+        KingfisherManager.shared.retrieveImage(with: urlTemplate) { result in
+            var image = UIImage(named: "defaultImage") ?? UIImage()
+            switch result {
+            case let .success(imageResult):
+                image = imageResult.image
+            default:
+                break
+            }
+            let activityController = UIActivityViewController(activityItems: [image,
+                                                                              text], applicationActivities: nil)
+            self.present(activityController, animated: true)
+        }
     }
 }

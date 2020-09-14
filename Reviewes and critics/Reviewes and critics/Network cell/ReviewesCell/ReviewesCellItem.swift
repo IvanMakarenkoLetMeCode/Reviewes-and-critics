@@ -17,6 +17,7 @@ struct ReviewesCellItem: VCellPresenting {
     var criticName: String?
     var date: String?
     var time: String?
+    var linkUrl: String?
     
     
 }

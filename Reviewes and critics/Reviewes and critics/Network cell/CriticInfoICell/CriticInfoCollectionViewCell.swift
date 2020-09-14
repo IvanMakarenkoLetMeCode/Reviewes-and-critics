@@ -36,7 +36,7 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
         criticNameLabel.text = item.criticName
 
         //Critic bio label
-        criticBioLabel.text = item.bio
+        criticBioLabel.attributedText = item.bio
 
         //Critic status
         #warning("Review note 5 - fix")
@@ -55,6 +55,7 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
     
     @IBAction func buttonAction(_ sender: UIButton) {
         criticBioLabel.isHidden.toggle()
+//        layoutIfNeeded()
     }
     
 }

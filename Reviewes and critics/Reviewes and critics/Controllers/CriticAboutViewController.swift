@@ -27,8 +27,8 @@ class CriticAboutViewController: UIViewController {
     private let criticInfoCellIdentifier = String(describing: CriticInfoCollectionViewCell.self)
     
     private let sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-       let lineSpacing: CGFloat = 10
-       let itemSpacing: CGFloat = 10
+    let lineSpacing: CGFloat = 10
+    let itemSpacing: CGFloat = 10
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,19 +53,23 @@ class CriticAboutViewController: UIViewController {
         sessionForCritics.loadCritics(reviewer: reviewer ?? "") { [weak self] success, error in
             
             guard let critics = success?.critics else { return }
-            let items = critics.map({ critic -> CriticInfoICellItem in
-                var imageCritic: URL?
-                if let urlString = critic.cover?.resource?.src {
-                    imageCritic = URL(string: urlString)
-                }
-                return CriticInfoICellItem(criticName: critic.criticName, imageCritic: imageCritic, status: critic.status, bio: critic.bio)
-            })
-            if let critic = items.first {
-                
-                self?.dataSource.insert(critic, at: 0)
-            }
             DispatchQueue.main.async {
-                
+                let items = critics.map({ critic -> CriticInfoICellItem in
+                    var imageCritic: URL?
+                    var bioAtrStr: NSAttributedString?
+                    if let urlString = critic.cover?.resource?.src {
+                        imageCritic = URL(string: urlString)
+                    }
+                    if let bioString = critic.bio {
+                        bioAtrStr = bioString.convertHTMLStringToAttributed()
+                    }
+                    return CriticInfoICellItem(criticName: critic.criticName, imageCritic: imageCritic, status: critic.status, bio: bioAtrStr)
+                    
+                })
+                if let critic = items.first {
+                    
+                    self?.dataSource.insert(critic, at: 0)
+                }
                 self?.collectionView.reloadData()
             }
         }
@@ -107,7 +111,8 @@ class CriticAboutViewController: UIViewController {
                                         filmAbout: review.review,
                                         criticName: review.criticName,
                                         date: dataMovie,
-                                        time: timeMovie)
+                                        time: timeMovie,
+                                        linkUrl: review.link?.url)
             })
             self.dataSource += items
             self.hasMore = success.hasMore
@@ -128,7 +133,7 @@ class CriticAboutViewController: UIViewController {
     
     private func setupCollectionViewLayout() {
         let layout = UICollectionViewFlowLayout()
-        let width = view.bounds.size.width - itemSpacing - sectionInset.left
+        let width = view.bounds.size.width - itemSpacing - sectionInset.left - sectionInset.right
         layout.estimatedItemSize = CGSize(width: width, height: 100)
         self.collectionView.collectionViewLayout = layout
     }

@@ -9,6 +9,10 @@
 import UIKit
 import Kingfisher
 
+protocol ReviewesCollectionViewCellDelegate {
+    func shareButtonTouchUpIns(_ cell: ReviewesCollectionViewCell)
+}
+
 class ReviewesCollectionViewCell: UICollectionViewCell {
 
     
@@ -25,6 +29,13 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
         width.isActive = true
         return width
     }()
+    
+    var delegate: ReviewesCollectionViewCellDelegate?
+    
+    @IBAction func shareClick(_ sender: Any) {
+        delegate?.shareButtonTouchUpIns(self)
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

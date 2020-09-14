@@ -15,6 +15,7 @@ struct Review: Codable
     var criticName: String?
     var createData: String?
     var cover: Multimedia?
+    var link: Link?
     
     
     
@@ -24,5 +25,6 @@ struct Review: Codable
         case criticName = "byline"
         case createData = "date_updated"
         case cover = "multimedia"
+        case link
     }
 }

@@ -18,5 +18,5 @@ struct CriticInfoICellItem: VCellPresenting {
     var criticName: String?
     var imageCritic: URL?
     var status: String?
-    var bio: String?
+    var bio: NSAttributedString?
 }
