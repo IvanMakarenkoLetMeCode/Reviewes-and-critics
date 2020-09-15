@@ -13,12 +13,6 @@ class SessionForReviewes {
     func loadReviewes(typeRequest: String, openingDate: String?, offset: Int?, order: String, query: String?, completionHandler: @escaping (FullArray?, NetworkError?) -> Void) {
         
         let session = URLSession.shared
-        #warning("Review note 2 - fix")
-        //Не очень круто в запросе иметь пустые аргументы (как тут, в случае, если ничего не ввели в поиске, то будет:
-        //&query=&api-key=kAWTcl...). Лучше и openingDate и query передать в виде опционалов.
-        //И добавлять их к запросу, только если они не nil и не isEmpty.
-        //А еще лучше попробуй урл формировать посредством URLQueryItems. Он круче тем, что добавляет необходимую
-        //кодировку (типа %20 вместо пробела). На твой выбор.
         let apiKey = Constants()
         var components = URLComponents()
         components.scheme = "https"
@@ -42,8 +36,6 @@ class SessionForReviewes {
         
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        #warning("Review note 3 - fix")
-        //Старайся удалять закомментированный код, если он не будет использован
 
         let task = session.dataTask(with: request) { (data, response, error) in
             
@@ -58,8 +50,6 @@ class SessionForReviewes {
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .secondsSince1970
                     let result = try decoder.decode(FullArray.self, from: data)
-//                    print(result.hasMore)
-//                    print (result.reviews)
                     completionHandler(result, nil)
                 } else {
                     completionHandler(nil, .requestError)

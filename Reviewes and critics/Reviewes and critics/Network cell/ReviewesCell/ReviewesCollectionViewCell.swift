@@ -45,16 +45,8 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
     func configure(with item: ReviewesCellItem) {
         
         //Movie name tranformation
-        #warning("Review note 7 - fix")
-        //Не совсем понятен смысл установки в аттрибутах просто жирного шрифта.
-        //Почему просто у лейбла на xib не поставить жирный шрифт?
         movieNameLabel.text = item.movieName
         
-        #warning("Review note 8 - fix")
-        //Как, наверное, помнишь, целью создания CellItem помимо прочего было выведение любых трансформаций данных
-        //из самой ячейки. Но тут ты делаешь все трансформации. Лучше будет все эит insert и прочее провести при
-        //инициализации ReviewesCellItem, чтобы в самой ячейке у тебя была только строка
-        //createTimeLabel.text = item.time и тд
         //Data tranformation
         createDataLabel.text = item.date
 
