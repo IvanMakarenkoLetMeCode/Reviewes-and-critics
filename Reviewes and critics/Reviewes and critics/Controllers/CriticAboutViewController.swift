@@ -45,7 +45,7 @@ class CriticAboutViewController: UIViewController {
     func setUpNavigation(text: String) {
         
         navigationItem.title = text
-        navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4809939901, green: 0.8862745098, blue: 0.9803921569, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor(named: "ColorNavigationCritics")
         navigationController?.navigationBar.isTranslucent = false
     }
     
@@ -61,7 +61,7 @@ class CriticAboutViewController: UIViewController {
                         imageCritic = URL(string: urlString)
                     }
                     if let bioString = critic.bio {
-                        bioAtrStr = bioString.convertHTMLStringToAttributed()
+                        bioAtrStr = bioString.convertHTMLStringToAttributed(fontName: "System", fontSize: 13)
                     }
                     return CriticInfoICellItem(criticName: critic.criticName, imageCritic: imageCritic, status: critic.status, bio: bioAtrStr)
                     
@@ -88,22 +88,20 @@ class CriticAboutViewController: UIViewController {
             let items = reviews.map({ review -> ReviewesCellItem in
                 var imageUrl: URL?
                 var dataMovie: String
-                var timeMovie: String
                 if let urlString = review.cover?.src {
                     imageUrl = URL(string: urlString)
                 }
                 if review.createData != nil {
                     dataMovie = review.createData ?? ""
-                    timeMovie = review.createData ?? ""
-                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
+//                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
                     dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
                     dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
                     dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
                     dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
-                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
+                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
+//                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
                 } else {
                     dataMovie = "No dates"
-                    timeMovie = ""
                 }
                 
                 return ReviewesCellItem(imageUrl: imageUrl,
@@ -111,7 +109,6 @@ class CriticAboutViewController: UIViewController {
                                         filmAbout: review.review,
                                         criticName: review.criticName,
                                         date: dataMovie,
-                                        time: timeMovie,
                                         linkUrl: review.link?.url)
             })
             self.dataSource += items
@@ -156,12 +153,14 @@ extension CriticAboutViewController: UICollectionViewDataSource, UICollectionVie
         switch item.type {
         case .header:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: criticInfoCellIdentifier, for: indexPath) as? CriticInfoCollectionViewCell else { fatalError() }
+            cell.delegate = self
             if let cellItem = item as? CriticInfoICellItem {
                 cell.configure(with: cellItem)
             }
             return cell
         case .reviewes:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reviewCellIdentifier, for: indexPath) as? ReviewesCollectionViewCell else { fatalError() }
+            cell.delegate = self
             if let cellItem = item as? ReviewesCellItem {
                 cell.configure(with: cellItem)
             }
@@ -195,8 +194,52 @@ extension CriticAboutViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return itemSpacing
     }
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left , height: 230)
-//    }
+
 }
 
+extension CriticAboutViewController: ReviewesCollectionViewCellDelegate {
+    func shareButtonTouchUpIns(_ cell: ReviewesCollectionViewCell) {
+        guard let index = collectionView.indexPath(for: cell)?.row else { return }
+        var text = "Hey! Check out this article on The New York Times:\r"
+        let item = dataSource[index]
+        switch item.type {
+        case .reviewes:
+            if let cellItem = item as? ReviewesCellItem {
+                text += cellItem.linkUrl ?? ""
+                guard let urlTemplate = cellItem.imageUrl else { return }
+                KingfisherManager.shared.retrieveImage(with: urlTemplate) { result in
+                    var image = UIImage(named: "defaultImage") ?? UIImage()
+                    switch result {
+                    case let .success(imageResult):
+                        image = imageResult.image
+                    default:
+                        break
+                    }
+                    let activityController = UIActivityViewController(activityItems: [image,
+                                                                                      text], applicationActivities: nil)
+                    self.present(activityController, animated: true)
+                }
+            }
+        default:
+            break
+        }
+    }
+}
+
+extension CriticAboutViewController: CriticInfoCollectionViewCellDelegate {
+    func buttonActionTouchUpIns(_ cell: CriticInfoCollectionViewCell) {
+        guard let index = collectionView.indexPath(for: cell) else { return }
+        let item = dataSource[index.row]
+        switch item.type {
+        case .header:
+            if var cellItem = item as? CriticInfoICellItem {
+                cellItem.bioHidden.toggle()
+                dataSource[index.row] = cellItem
+            }
+            
+        default:
+            break
+        }
+        collectionView.reloadData()
+    }
+}

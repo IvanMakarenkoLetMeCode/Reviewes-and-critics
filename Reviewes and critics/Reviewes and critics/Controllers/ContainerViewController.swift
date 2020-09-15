@@ -36,14 +36,23 @@ class ContainerViewController: UIViewController {
     func setUpNavigation(text: String) {
         
         navigationItem.title = text
-        if text == "Reviewes" {
-            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 0.663400948, blue: 0.4954517484, alpha: 1)
-            navigationController?.navigationBar.isTranslucent = false
+        if #available(iOS 13.0, *) {
+            if text == "Reviewes" {
+                navigationController?.navigationBar.barTintColor = UIColor(named: "ColorNavigationReviewes")
+                navigationController?.navigationBar.isTranslucent = false
+            } else {
+                navigationController?.navigationBar.barTintColor = UIColor(named: "ColorNavigationCritics")
+                navigationController?.navigationBar.isTranslucent = false
+            }
         } else {
-            navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4809939901, green: 0.8862745098, blue: 0.9803921569, alpha: 1)
-            navigationController?.navigationBar.isTranslucent = false
+            if text == "Reviewes" {
+                navigationController?.navigationBar.barTintColor = #colorLiteral(red: 1, green: 0.663400948, blue: 0.4954517484, alpha: 1)
+                navigationController?.navigationBar.isTranslucent = false
+            } else {
+                navigationController?.navigationBar.barTintColor = #colorLiteral(red: 0.4809939901, green: 0.8862745098, blue: 0.9803921569, alpha: 1)
+                navigationController?.navigationBar.isTranslucent = false
+            }
         }
-        
     }
 
     
@@ -57,7 +66,7 @@ class ContainerViewController: UIViewController {
             
             configureReviewesViewController()
             setUpNavigation(text: "Reviewes")
-            setUpSCStyle(sender: sender, color: #colorLiteral(red: 1, green: 0.663400948, blue: 0.4954517484, alpha: 1))
+            setUpSCStyle(sender: sender, color: UIColor(named: "ColorNavigationReviewes") ?? #colorLiteral(red: 1, green: 0.663400948, blue: 0.4954517484, alpha: 1))
         } else if sender.selectedSegmentIndex == 1 {
             
             if let vc = reviewesViewController {
@@ -65,7 +74,7 @@ class ContainerViewController: UIViewController {
             }
             configureCriticsViewController()
             setUpNavigation(text: "Critics")
-            setUpSCStyle(sender: sender, color: #colorLiteral(red: 0.4809939901, green: 0.8862745098, blue: 0.9803921569, alpha: 1))
+            setUpSCStyle(sender: sender, color: UIColor(named: "ColorNavigationCritics") ?? #colorLiteral(red: 0.4809939901, green: 0.8862745098, blue: 0.9803921569, alpha: 1))
         }
     }
     

@@ -19,4 +19,5 @@ struct CriticInfoICellItem: VCellPresenting {
     var imageCritic: URL?
     var status: String?
     var bio: NSAttributedString?
+    var bioHidden: Bool = false
 }

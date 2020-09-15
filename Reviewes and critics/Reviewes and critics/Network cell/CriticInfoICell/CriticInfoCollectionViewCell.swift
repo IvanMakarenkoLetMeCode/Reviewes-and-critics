@@ -9,12 +9,24 @@
 import UIKit
 import Kingfisher
 
+protocol CriticInfoCollectionViewCellDelegate {
+    func buttonActionTouchUpIns(_ cell: CriticInfoCollectionViewCell)
+}
+
 class CriticInfoCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var criticImageView: UIImageView!
     @IBOutlet weak var criticNameLabel: UILabel!
     @IBOutlet weak var criticStatusButton: UIButton!
     @IBOutlet weak var criticBioLabel: UILabel!
+    
+    var delegate: CriticInfoCollectionViewCellDelegate?
+    
+    lazy var width: NSLayoutConstraint = {
+        let width = contentView.widthAnchor.constraint(equalToConstant: bounds.size.width)
+        width.isActive = true
+        return width
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +49,8 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
 
         //Critic bio label
         criticBioLabel.attributedText = item.bio
+        criticBioLabel.textColor = UIColor(named: "ColorGrayLaD")
+        criticBioLabel.isHidden = item.bioHidden
 
         //Critic status
         #warning("Review note 5 - fix")
@@ -54,8 +68,15 @@ class CriticInfoCollectionViewCell: UICollectionViewCell {
     }
     
     @IBAction func buttonAction(_ sender: UIButton) {
-        criticBioLabel.isHidden.toggle()
-//        layoutIfNeeded()
+//        criticBioLabel.isHidden.toggle()
+        delegate?.buttonActionTouchUpIns(self)
+    }
+    
+    override func systemLayoutSizeFitting(_ targetSize: CGSize,
+                                          withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority,
+                                          verticalFittingPriority: UILayoutPriority) -> CGSize {
+        width.constant = bounds.size.width
+        return contentView.systemLayoutSizeFitting(CGSize(width: targetSize.width, height: 1))
     }
     
 }

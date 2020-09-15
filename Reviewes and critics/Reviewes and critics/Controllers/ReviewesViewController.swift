@@ -61,29 +61,28 @@ class ReviewesViewController: UIViewController {
             let items = reviews.map({ review -> ReviewesCellItem in
                 var imageUrl: URL?
                 var dataMovie: String
-                var timeMovie: String
                 if let urlString = review.cover?.src {
                     imageUrl = URL(string: urlString)
                 }
                 if review.createData != nil {
                     dataMovie = review.createData ?? ""
-                    timeMovie = review.createData ?? ""
-                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
+//                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
                     dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
                     dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
                     dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
                     dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
-                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
+                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
+//                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
+//                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
+//                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
                 } else {
                     dataMovie = "No dates"
-                    timeMovie = ""
                 }
                 return ReviewesCellItem(imageUrl: imageUrl,
                                         movieName: review.movieName,
                                         filmAbout: review.review,
                                         criticName: review.criticName,
                                         date: dataMovie,
-                                        time: timeMovie,
                                         linkUrl: review.link?.url)
             })
             self.reviews += items
@@ -179,7 +178,7 @@ class ReviewesViewController: UIViewController {
         //toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
 //        toolbar.sizeToFit()
-        toolbar.backgroundColor = UIColor.lightGray
+        toolbar.backgroundColor = UIColor(named: "ColorGrayLaD")
         
         //bar button
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))

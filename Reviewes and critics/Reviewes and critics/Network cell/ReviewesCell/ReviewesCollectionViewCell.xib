@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,33 +21,33 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="euA-x8-uWe">
                         <rect key="frame" x="0.0" y="0.0" width="946" height="230"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="kBT-QR-Zaf">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" image="defaultImage" translatesAutoresizingMaskIntoConstraints="NO" id="kBT-QR-Zaf">
                                 <rect key="frame" x="10" y="10" width="140" height="210"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="210" id="fPu-5D-un7"/>
                                     <constraint firstAttribute="width" constant="140" id="mVl-ls-yCd"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHp-5R-lpW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Movie" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHp-5R-lpW">
                                 <rect key="frame" x="160" y="10" width="776" height="19.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vU-G9-Qlq">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Review" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vU-G9-Qlq">
                                 <rect key="frame" x="160" y="39.5" width="776" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="ColorGrayLaD"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="CriticName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAd-fi-hMB">
-                                <rect key="frame" x="160" y="168" width="776" height="18"/>
+                                <rect key="frame" x="160" y="167" width="776" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNH-S6-cju">
-                                <rect key="frame" x="902" y="196" width="24" height="24"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qNH-S6-cju">
+                                <rect key="frame" x="901" y="195" width="25" height="25"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="shareImage"/>
                                 <connections>
@@ -54,20 +55,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JAj-xy-uJf">
-                                <rect key="frame" x="160" y="200" width="28.5" height="16"/>
+                                <rect key="frame" x="160" y="199.5" width="28.5" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lY9-Xf-alc">
-                                <rect key="frame" x="198.5" y="200" width="30" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" name="ColorGrayLaD"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="qNH-S6-cju" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JAj-xy-uJf" secondAttribute="trailing" constant="10" id="22O-Vu-9E8"/>
                             <constraint firstAttribute="trailing" secondItem="LHp-5R-lpW" secondAttribute="trailing" constant="10" id="2Gd-DA-l9c"/>
                             <constraint firstItem="2vU-G9-Qlq" firstAttribute="top" secondItem="LHp-5R-lpW" secondAttribute="bottom" constant="10" id="Eum-yd-RBV"/>
                             <constraint firstItem="WAd-fi-hMB" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2vU-G9-Qlq" secondAttribute="bottom" constant="10" id="IXi-4t-IHU"/>
@@ -78,14 +74,11 @@
                             <constraint firstItem="2vU-G9-Qlq" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="YRk-Oy-Zbh"/>
                             <constraint firstAttribute="bottom" secondItem="kBT-QR-Zaf" secondAttribute="bottom" priority="750" constant="10" id="avh-Qy-rv8"/>
                             <constraint firstItem="qNH-S6-cju" firstAttribute="top" secondItem="WAd-fi-hMB" secondAttribute="bottom" constant="10" id="bJb-oJ-QPe"/>
-                            <constraint firstItem="qNH-S6-cju" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="lY9-Xf-alc" secondAttribute="trailing" constant="10" id="ctD-EX-dVs"/>
                             <constraint firstItem="kBT-QR-Zaf" firstAttribute="top" secondItem="euA-x8-uWe" secondAttribute="top" constant="10" id="fm9-pJ-h32"/>
                             <constraint firstItem="LHp-5R-lpW" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="hla-iR-Rft"/>
                             <constraint firstItem="kBT-QR-Zaf" firstAttribute="leading" secondItem="euA-x8-uWe" secondAttribute="leading" constant="10" id="kf1-K4-MBl"/>
                             <constraint firstItem="WAd-fi-hMB" firstAttribute="leading" secondItem="kBT-QR-Zaf" secondAttribute="trailing" constant="10" id="mmY-UE-WLv"/>
                             <constraint firstItem="JAj-xy-uJf" firstAttribute="centerY" secondItem="qNH-S6-cju" secondAttribute="centerY" id="nA8-0x-FC0"/>
-                            <constraint firstItem="lY9-Xf-alc" firstAttribute="centerY" secondItem="qNH-S6-cju" secondAttribute="centerY" id="nEK-ok-DDt"/>
-                            <constraint firstItem="lY9-Xf-alc" firstAttribute="leading" secondItem="JAj-xy-uJf" secondAttribute="trailing" constant="10" id="pBx-hA-BS6"/>
                             <constraint firstAttribute="trailing" secondItem="2vU-G9-Qlq" secondAttribute="trailing" constant="10" id="phc-CV-deT"/>
                             <constraint firstAttribute="bottom" secondItem="qNH-S6-cju" secondAttribute="bottom" priority="750" constant="10" id="rL5-P3-mz4"/>
                         </constraints>
@@ -102,7 +95,6 @@
             <size key="customSize" width="946" height="230"/>
             <connections>
                 <outlet property="createDataLabel" destination="JAj-xy-uJf" id="7Mr-CQ-UAL"/>
-                <outlet property="createTimeLabel" destination="lY9-Xf-alc" id="F5x-EZ-gqA"/>
                 <outlet property="criticNameLabel" destination="WAd-fi-hMB" id="G7M-AQ-Pko"/>
                 <outlet property="movieImageView" destination="kBT-QR-Zaf" id="5yz-V4-KHM"/>
                 <outlet property="movieNameLabel" destination="LHp-5R-lpW" id="jn8-0j-edu"/>
@@ -114,6 +106,12 @@
     </objects>
     <resources>
         <image name="defaultImage" width="118" height="88.5"/>
-        <image name="shareImage" width="24" height="24"/>
+        <image name="shareImage" width="25" height="25"/>
+        <namedColor name="Color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="ColorGrayLaD">
+            <color white="0.42004925012588501" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </namedColor>
     </resources>
 </document>

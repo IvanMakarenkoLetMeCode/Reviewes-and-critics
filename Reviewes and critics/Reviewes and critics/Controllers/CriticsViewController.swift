@@ -88,7 +88,7 @@ class CriticsViewController: UIViewController {
             //toolbar
             let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
 //            toolbar.sizeToFit()
-            toolbar.backgroundColor = UIColor.lightGray
+            toolbar.backgroundColor = UIColor(named: "ColorGrayLaD")
             
             let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: #selector(searchPressed))
             let cancelBtn = UIBarButtonItem(barButtonSystemItem: .cancel, target: nil, action: #selector(cancelClicked))

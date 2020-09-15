@@ -57,7 +57,6 @@ class ReviewesCollectionViewCell: UICollectionViewCell {
         //createTimeLabel.text = item.time и тд
         //Data tranformation
         createDataLabel.text = item.date
-        createTimeLabel.text = item.time
 
         
         //Review tranformation
