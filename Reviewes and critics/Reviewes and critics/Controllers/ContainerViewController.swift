@@ -86,13 +86,13 @@ class ContainerViewController: UIViewController {
         if #available(iOS 13.0, *) {
             sender.selectedSegmentTintColor = color
         } else {
-            if color == #colorLiteral(red: 1, green: 0.663400948, blue: 0.4954517484, alpha: 1) {
+            if sender.selectedSegmentIndex == 0 {
                 sender.backgroundColor = #colorLiteral(red: 0.933313787, green: 0.6353278756, blue: 0.4940687418, alpha: 1)
                 sender.tintColor = color
                 sender.layer.borderWidth = 1
                 sender.layer.borderColor = #colorLiteral(red: 0.933313787, green: 0.6353278756, blue: 0.4940687418, alpha: 1).cgColor
                 sender.layer.cornerRadius = 5
-            } else {
+            } else if sender.selectedSegmentIndex == 1 {
                 sender.backgroundColor = #colorLiteral(red: 0.4782466292, green: 0.8353435397, blue: 0.9214532971, alpha: 1)
                 sender.tintColor = color
                 sender.layer.borderWidth = 1

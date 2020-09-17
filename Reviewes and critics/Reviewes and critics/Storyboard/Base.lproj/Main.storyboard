@@ -107,17 +107,7 @@
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReviewesCollectionViewCell" id="F6z-sQ-bR8">
-                                        <rect key="frame" x="7.5" y="0.0" width="399" height="136"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="d8d-62-NMU">
-                                            <rect key="frame" x="0.0" y="0.0" width="399" height="136"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="399" height="136"/>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
                                 <connections>
                                     <outlet property="dataSource" destination="0QI-X3-mdQ" id="cHx-XJ-K9l"/>
                                     <outlet property="delegate" destination="0QI-X3-mdQ" id="4PF-dQ-wpl"/>
@@ -307,10 +297,10 @@
     </scenes>
     <resources>
         <namedColor name="ColorBackground">
-            <color white="0.88026493787765503" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color white="0.87999999523162842" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <namedColor name="ColorNavigationCritics">
-            <color red="0.58535999059999999" green="0.88141524790000003" blue="0.96481019260000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.58499997854232788" green="0.88099998235702515" blue="0.9649999737739563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
     </resources>
 </document>

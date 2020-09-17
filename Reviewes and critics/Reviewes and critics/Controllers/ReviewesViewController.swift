@@ -19,6 +19,7 @@ class ReviewesViewController: UIViewController {
     let sessionForReviewes = SessionForReviewes()
     var reviews: [ReviewesCellItem] = []
     var hasMore = true
+    var nextPageLoading = false
     
     var typeRequest = "all"
     var openingDate = ""
@@ -26,15 +27,24 @@ class ReviewesViewController: UIViewController {
     var order = ""
     var query = ""
     private let reviewCellIdentifier = String(describing: ReviewesCollectionViewCell.self)
+    private let refreshControlCellIdentifier = String(describing: RefreshCollectionReusableView.self)
     
     private let sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-       let lineSpacing: CGFloat = 20
-       let itemSpacing: CGFloat = 10
+    let lineSpacing: CGFloat = 20
+    let itemSpacing: CGFloat = 10
+    
+    let myRefreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Reload items...")
+        refreshControl.addTarget(self, action: #selector(searchReviewesPlusFetch), for: .valueChanged)
+        return refreshControl
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        setupCollectionViewLayout()
+        //        setupCollectionViewLayout()
+        collectionView.refreshControl = myRefreshControl
         setupUI()
         createSearchBar()
         createDatePicker()
@@ -42,8 +52,13 @@ class ReviewesViewController: UIViewController {
         
     }
     
+    //    func setUpRefresh() {
+    //        collectionView.addSubview(myRefreshControl)
+    //        self.collectionView.collectionFooter
+    //    }
+    
     @objc private func searchReviewesPlusFetch() {
-            
+        
         offset = 0
         reviews = []
         loadReviewes()
@@ -66,15 +81,15 @@ class ReviewesViewController: UIViewController {
                 }
                 if review.createData != nil {
                     dataMovie = review.createData ?? ""
-//                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
+                    //                    dataMovie.removeSubrange(dataMovie.index(dataMovie.startIndex, offsetBy: 10)..<dataMovie.endIndex)
                     dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
                     dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 4))
                     dataMovie.remove(at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
                     dataMovie.insert("/", at: dataMovie.index(dataMovie.startIndex, offsetBy: 7))
                     dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
-//                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
-//                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
-//                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
+                    //                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
+                    //                    dataMovie.insert(" ", at: dataMovie.index(dataMovie.startIndex, offsetBy: 10))
+                    //                    timeMovie.removeSubrange(timeMovie.startIndex..<timeMovie.index(dataMovie.startIndex, offsetBy: 10))
                 } else {
                     dataMovie = "No dates"
                 }
@@ -88,7 +103,8 @@ class ReviewesViewController: UIViewController {
             self.reviews += items
             self.hasMore = success.hasMore
             DispatchQueue.main.async {
-                
+                self.nextPageLoading = false
+                self.myRefreshControl.endRefreshing()
                 self.collectionView.reloadData()
             }
         }
@@ -98,14 +114,15 @@ class ReviewesViewController: UIViewController {
     private func setupUI() {
         
         collectionView.register(UINib(nibName: reviewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: reviewCellIdentifier)
+        collectionView.register(UINib(nibName: refreshControlCellIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: refreshControlCellIdentifier)
     }
     
-//    private func setupCollectionViewLayout() {
-//        let layout = UICollectionViewFlowLayout()
-//        let width = view.bounds.size.width - itemSpacing - sectionInset.left
-//        layout.estimatedItemSize = CGSize(width: width, height: 10)
-//        self.collectionView.collectionViewLayout = layout
-//    }
+    //    private func setupCollectionViewLayout() {
+    //        let layout = UICollectionViewFlowLayout()
+    //        let width = view.bounds.size.width - itemSpacing - sectionInset.left
+    //        layout.estimatedItemSize = CGSize(width: width, height: 10)
+    //        self.collectionView.collectionViewLayout = layout
+    //    }
     
     func createSearchBar() {
         //image
@@ -113,13 +130,13 @@ class ReviewesViewController: UIViewController {
         let image = UIImage(named: "searchImage")
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
-//        imageView.backgroundColor = .red
-//        imageView.tintColor = .white
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+        //        imageView.backgroundColor = .red
+        //        imageView.tintColor = .white
+        //        imageView.translatesAutoresizingMaskIntoConstraints = false
+        //        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
         let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 40))
         emptyView.addSubview(imageView)
-//        emptyView.backgroundColor = .green
+        //        emptyView.backgroundColor = .green
         titleTxt.leftViewMode = .always
         titleTxt.leftView = emptyView
         
@@ -128,7 +145,7 @@ class ReviewesViewController: UIViewController {
         
         //toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
-//        toolbar.sizeToFit()
+        //        toolbar.sizeToFit()
         toolbar.backgroundColor = UIColor.lightGray
         
         let searchBtn = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: #selector(searchPressed))
@@ -161,13 +178,13 @@ class ReviewesViewController: UIViewController {
         let image = UIImage(named: "dateImage")
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
-//        imageView.backgroundColor = .red
-//        imageView.tintColor = .white
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
+        //        imageView.backgroundColor = .red
+        //        imageView.tintColor = .white
+        //        imageView.translatesAutoresizingMaskIntoConstraints = false
+        //        imageView.layoutMargins = UIEdgeInsets(top: 0, left: 100, bottom: 0, right: 0)
         let emptyView = UIView(frame: CGRect(x: 0, y: 0, width: 32, height: 40))
         emptyView.addSubview(imageView)
-//        emptyView.backgroundColor = .green
+        //        emptyView.backgroundColor = .green
         dateTxt.leftViewMode = .always
         dateTxt.leftView = emptyView
         
@@ -177,7 +194,7 @@ class ReviewesViewController: UIViewController {
         
         //toolbar
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 40))
-//        toolbar.sizeToFit()
+        //        toolbar.sizeToFit()
         toolbar.backgroundColor = UIColor(named: "ColorGrayLaD")
         
         //bar button
@@ -231,15 +248,26 @@ extension ReviewesViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView:UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let lastRow = indexPath.row
-        if lastRow == reviews.count - 1 && hasMore {
+        if lastRow == reviews.count - 1 && hasMore && !nextPageLoading {
             fetchNextPage()
         }
     }
     
     private func fetchNextPage() {
         offset += 20
+        nextPageLoading = true
         loadReviewes()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if (kind == UICollectionView.elementKindSectionFooter) {
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: refreshControlCellIdentifier, for: indexPath) as? RefreshCollectionReusableView else { fatalError() }
+            footerView.set(animated: nextPageLoading)
+            return footerView
+        }
+        fatalError()
+    }
+    
 }
 
 extension ReviewesViewController: UICollectionViewDelegateFlowLayout {
@@ -257,6 +285,10 @@ extension ReviewesViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left , height: 230)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left, height: 50)
     }
 }
 

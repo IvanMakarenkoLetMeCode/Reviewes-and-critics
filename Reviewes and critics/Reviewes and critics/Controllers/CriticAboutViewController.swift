@@ -20,11 +20,13 @@ class CriticAboutViewController: UIViewController {
     var reviewer: String?
     let sessionForCritics = SessionForCritics()
     let sessionForReviewes = SessionForCriticReviwes()
+    var nextPageLoading = false
     
     
     
     private let reviewCellIdentifier = String(describing: ReviewesCollectionViewCell.self)
     private let criticInfoCellIdentifier = String(describing: CriticInfoCollectionViewCell.self)
+    private let refreshControlCellIdentifier = String(describing: RefreshCollectionReusableView.self)
     
     private let sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     let lineSpacing: CGFloat = 10
@@ -114,7 +116,7 @@ class CriticAboutViewController: UIViewController {
             self.dataSource += items
             self.hasMore = success.hasMore
             DispatchQueue.main.async {
-                
+                self.nextPageLoading = false
                 self.collectionView.reloadData()
             }
         }
@@ -125,6 +127,7 @@ class CriticAboutViewController: UIViewController {
         
         collectionView.register(UINib(nibName: criticInfoCellIdentifier, bundle: nil), forCellWithReuseIdentifier: criticInfoCellIdentifier)
         collectionView.register(UINib(nibName: reviewCellIdentifier, bundle: nil), forCellWithReuseIdentifier: reviewCellIdentifier)
+        collectionView.register(UINib(nibName: refreshControlCellIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: refreshControlCellIdentifier)
         
     }
     
@@ -170,15 +173,26 @@ extension CriticAboutViewController: UICollectionViewDataSource, UICollectionVie
     
     func collectionView(_ collectionView:UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let lastRow = indexPath.row
-        if lastRow == dataSource.count - 1 && hasMore {
+        if lastRow == dataSource.count - 1 && hasMore && !nextPageLoading {
             fetchNextPage()
         }
     }
     
     private func fetchNextPage() {
         offset += 20
+        nextPageLoading = true
         loadReviewes()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if (kind == UICollectionView.elementKindSectionFooter) {
+            guard let footerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: refreshControlCellIdentifier, for: indexPath) as? RefreshCollectionReusableView else { fatalError() }
+            footerView.set(animated: nextPageLoading)
+            return footerView
+        }
+        fatalError()
+    }
+    
 }
 
 extension CriticAboutViewController: UICollectionViewDelegateFlowLayout {
@@ -193,6 +207,10 @@ extension CriticAboutViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return itemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.size.width - itemSpacing - sectionInset.left, height: 50)
     }
 
 }
